@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  /* PLACEHOLDER PALETTE — vibrant black + purple/violet AI-agency direction */
+  --background: #030304;
+  --background-elevated: #0c0c10;
+  --foreground: #f5f4f7;
+  --foreground-muted: #9a97a6;
+  --accent: #a855f7;
+  --accent-2: #ec4899;
+  --accent-3: #3b82f6;
+  --accent-4: #22c55e;
+  --accent-foreground: #ffffff;
+  --border: #1f1f27;
+  --card-bg: #fafafa;
+  --card-fg: #111114;
+  --card-muted: #6b6b76;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-accent-4: var(--accent-4);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-card-bg: var(--card-bg);
+  --color-card-fg: var(--card-fg);
+  --color-card-muted: var(--card-muted);
+  --font-display: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, var(--accent-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, #3b0764 100%);
+  box-shadow: 0 0 50px -12px var(--accent);
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 0 70px -10px var(--accent);
+}
+
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate(-8%, -6%) scale(1); }
+  50% { transform: translate(10%, 6%) scale(1.2); }
+}
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate(10%, 8%) scale(1.1); }
+  50% { transform: translate(-6%, -10%) scale(0.95); }
+}
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate(0%, 10%) scale(1); }
+  50% { transform: translate(-12%, -4%) scale(1.15); }
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
