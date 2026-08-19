@@ -1,4 +1,4 @@
-// PROTOTYPE — CSS-only aurora/smoke effect, no external libs.
+// CSS-only aurora/smoke effect behind the hero — no external libs.
 
 export function Aurora({ className = "" }: { className?: string }) {
   return (

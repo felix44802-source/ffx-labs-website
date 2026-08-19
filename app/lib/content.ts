@@ -1,4 +1,4 @@
-// PROTOTYPE — throwaway placeholder copy, not the real bilingual content.
+// Placeholder copy — first bilingual draft pending, see docs/agents (SEO/copy scope) and CONTEXT.md.
 // English is primary/default; Spanish is fully available but not the lead language.
 
 export const brand = {
@@ -68,4 +68,5 @@ export const about = {
   bio: "I build AI-powered websites and bots for businesses that don't have time to manage a digital presence. If that's you too, that's what I'm here for.",
 };
 
-export const whatsappHref = "https://wa.me/10000000000"; // PLACEHOLDER NUMBER
+// PLACEHOLDER NUMBER — replace with the real WhatsApp Business number.
+export const whatsappHref = "https://wa.me/10000000000";
