@@ -1,25 +1,19 @@
-// CSS-only aurora/smoke effect behind the hero — no external libs.
-
 export function Aurora({ className = "" }: { className?: string }) {
   return (
     <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
+      {/* Dark Forest Emerald Ambient Blob */}
       <div
-        className="aurora-blob left-[10%] top-[10%] h-[420px] w-[420px] bg-accent-2"
-        style={{ animation: "aurora-drift-1 18s ease-in-out infinite" }}
+        className="aurora-blob left-[15%] top-[10%] h-[500px] w-[500px] bg-[#0c2e1c]"
+        style={{ animation: "aurora-drift-1 22s ease-in-out infinite" }}
       />
+      {/* Deep Gold / Amber Ambient Blob */}
       <div
-        className="aurora-blob right-[10%] top-[5%] h-[480px] w-[480px] bg-accent"
-        style={{ animation: "aurora-drift-2 22s ease-in-out infinite" }}
+        className="aurora-blob right-[15%] top-[5%] h-[450px] w-[450px] bg-[#2a200a]"
+        style={{ animation: "aurora-drift-2 26s ease-in-out infinite" }}
       />
-      <div
-        className="aurora-blob bottom-[0%] left-[30%] h-[400px] w-[400px] bg-accent-3"
-        style={{ animation: "aurora-drift-3 26s ease-in-out infinite" }}
-      />
-      <div
-        className="aurora-blob bottom-[10%] right-[20%] h-[300px] w-[300px] bg-accent-4 opacity-30"
-        style={{ animation: "aurora-drift-1 20s ease-in-out infinite reverse" }}
-      />
-      <div className="absolute inset-0 bg-background/40" />
+      {/* Subtle overlay for deep dark integration */}
+      <div className="absolute inset-0 bg-[#060907]/60" />
     </div>
   );
 }
+
