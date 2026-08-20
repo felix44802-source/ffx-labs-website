@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* PLACEHOLDER PALETTE — vibrant black + purple/violet AI-agency direction */
+  /* Brand palette — black + amber/orange, matching the Fx Labs logo */
   --background: #030304;
   --background-elevated: #0c0c10;
-  --foreground: #f5f4f7;
-  --foreground-muted: #9a97a6;
-  --accent: #a855f7;
-  --accent-2: #ec4899;
-  --accent-3: #3b82f6;
-  --accent-4: #22c55e;
-  --accent-foreground: #ffffff;
-  --border: #1f1f27;
+  --foreground: #f5f4ee;
+  --foreground-muted: #9a9790;
+  --accent: #f59e0b;
+  --accent-2: #ef4444;
+  --accent-3: #fbbf24;
+  --accent-4: #c2410c;
+  --accent-foreground: #0c0a06;
+  --border: #211d16;
   --card-bg: #fafafa;
   --card-fg: #111114;
   --card-muted: #6b6b76;
@@ -50,7 +50,7 @@ body {
 }
 
 .btn-gradient {
-  background: linear-gradient(135deg, var(--accent) 0%, #3b0764 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-4) 100%);
   box-shadow: 0 0 50px -12px var(--accent);
 }
 

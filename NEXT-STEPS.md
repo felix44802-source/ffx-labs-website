@@ -1,4 +1,4 @@
-# Where we left off — 2026-08-19
+# Where we left off — 2026-08-19 (updated same day)
 
 Status snapshot for picking this back up cleanly. Not a spec — see `CONTEXT.md`
 for domain vocabulary and `docs/adr/` for decisions with lasting rationale.
@@ -33,23 +33,26 @@ for domain vocabulary and `docs/adr/` for decisions with lasting rationale.
   email/DB later, deliberately deferred). Wired end-to-end through a real
   Server Action (`app/actions/contact.ts`) into the `ContactForm` component.
   7 tests passing (Vitest + React Testing Library, set up this session).
+- **Real logo integrated**: `public/logo.png` (source in `Logo/`), placed at
+  the top of the Hero. This revealed the real brand palette is **black +
+  amber/orange** (not purple/violet) — `app/globals.css` was recolored to
+  match: `--accent` amber, `--accent-2` red, `--accent-3` gold,
+  `--accent-4` rust, buttons/gradients updated to a warm "ember" look. This
+  supersedes the "purple/violet AI-agency" direction mentioned in ADR-era
+  notes above.
+- **Real WhatsApp number wired in**: `https://wa.me/16197452934` in
+  `app/lib/content.ts`, no longer a placeholder.
 
 ## Still pending
 
 - **Your photo** for the About section — `app/components/About.tsx` still
   has a placeholder circle.
-- **WhatsApp Business number** — still a placeholder `wa.me` link, marked
-  clearly in `app/lib/content.ts`.
-- **Exact brand hex codes** — the purple/black palette in
-  `app/globals.css` is my approximation of your description, not values you
-  gave me directly. Swap in the real ones if you have them.
+- **Domain registration** — still in progress (see below), not purchased yet.
 - **Bilingual `/en` `/es` routing** with first-visit auto-detect — not
   started. Right now the site is English-only; no `/es` route exists yet.
   This was next up when we stopped.
 - **Illustrative Example visuals** — the Results section is text/metric
   only right now; no mockup screenshots or video yet.
-- **Domain registration** — `usefxlabs.com` was decided (see ADR 0001) but
-  not actually purchased.
 - **Analytics** — Vercel Analytics + WhatsApp/form click tracking, agreed
   during grilling, not implemented.
 - **Privacy page** — agreed during grilling, not created.

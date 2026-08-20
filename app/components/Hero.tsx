@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { brand, spanishWelcome, whatsappHref } from "@/app/lib/content";
 import { Aurora } from "./Aurora";
 
@@ -6,6 +7,14 @@ export function Hero() {
     <section className="relative flex min-h-screen flex-col items-center justify-center gap-6 overflow-hidden border-b border-border px-6 text-center">
       <Aurora />
       <div className="relative z-10 flex flex-col items-center gap-6">
+        <Image
+          src="/logo.png"
+          alt={brand.name}
+          width={96}
+          height={96}
+          priority
+          className="h-20 w-20 md:h-24 md:w-24"
+        />
         <p className="font-mono text-xs tracking-[0.3em] text-accent uppercase">
           {brand.name}
         </p>

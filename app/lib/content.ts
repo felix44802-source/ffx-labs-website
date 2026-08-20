@@ -68,5 +68,4 @@ export const about = {
   bio: "I build AI-powered websites and bots for businesses that don't have time to manage a digital presence. If that's you too, that's what I'm here for.",
 };
 
-// PLACEHOLDER NUMBER — replace with the real WhatsApp Business number.
-export const whatsappHref = "https://wa.me/10000000000";
+export const whatsappHref = "https://wa.me/16197452934";
