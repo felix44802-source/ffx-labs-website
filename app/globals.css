@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark, cinematic palette — near-black base with subtle green undertone & gold/emerald accents */
-  --background: #060907;
-  --background-elevated: #0d120f;
-  --foreground: #eeefec;
-  --foreground-muted: #808c85;
+  /* Prodmast High-End Forest Green & Mint Palette */
+  --background: #091b15;
+  --background-elevated: #0d241c;
+  --foreground: #f2f7f4;
+  --foreground-muted: #8ea89d;
   
-  --accent: #d4af37;        /* Gold/amber */
-  --accent-2: #10b981;      /* Muted emerald */
-  --accent-3: #f59e0b;      /* Warm amber */
-  --accent-4: #059669;      /* Muted forest emerald */
-  --accent-foreground: #080b09;
+  --accent: #10b981;        /* Vibrant Emerald / Mint */
+  --accent-2: #34d399;      /* Light Mint */
+  --accent-3: #f59e0b;      /* Warm Amber */
+  --accent-4: #059669;      /* Deep Forest Emerald */
+  --accent-foreground: #03140e;
 
-  --border: #162019;
-  --border-subtle: #1c2b22;
+  --border: #14352a;
+  --border-subtle: #194435;
   
-  /* Dark cards throughout — NO bright white cards */
-  --card-bg: #0f1612;
-  --card-fg: #f0f2ef;
-  --card-muted: #88968e;
-  --card-border: #1c2b22;
+  /* Dark Bento Cards */
+  --card-bg: #0d241c;
+  --card-fg: #f2f7f4;
+  --card-muted: #8ea89d;
+  --card-border: #1a4738;
+
+  /* Light Contrast Containers */
+  --light-bg: #f4f8f6;
+  --light-fg: #0f231b;
+  --light-muted: #4a6358;
+  --light-border: #d6e4dc;
 }
 
 @theme inline {
@@ -39,6 +45,10 @@
   --color-card-fg: var(--card-fg);
   --color-card-muted: var(--card-muted);
   --color-card-border: var(--card-border);
+  --color-light-bg: var(--light-bg);
+  --color-light-fg: var(--light-fg);
+  --color-light-muted: var(--light-muted);
+  --color-light-border: var(--light-border);
   --font-display: var(--font-sans);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
@@ -55,46 +65,54 @@ body {
   overflow-x: hidden;
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, #f5ecc8 0%, #d4af37 45%, #34d399 100%);
+.text-gradient-mint {
+  background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 60%, #10b981 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.text-gradient-gold {
-  background: linear-gradient(135deg, #fff7d6 0%, #d4af37 70%, #b48a1d 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.btn-mint {
+  background: #10b981;
+  color: #04160f;
+  font-weight: 600;
+  box-shadow: 0 4px 20px -4px rgba(16, 185, 129, 0.4);
+  transition: all 0.25s ease;
+}
+
+.btn-mint:hover {
+  background: #34d399;
+  box-shadow: 0 6px 28px -2px rgba(16, 185, 129, 0.55);
+  transform: translateY(-1px);
+}
+
+.btn-dark {
+  background: #091b15;
+  color: #f2f7f4;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+}
+
+.btn-dark:hover {
+  background: #0d241c;
+  border-color: var(--accent);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #d4af37 0%, #b48a1d 100%);
-  color: #080b09;
+  background: #10b981;
+  color: #04160f;
   font-weight: 600;
-  box-shadow: 0 4px 20px -5px rgba(212, 175, 55, 0.35);
+  box-shadow: 0 4px 20px -5px rgba(16, 185, 129, 0.35);
   transition: all 0.25s ease;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 28px -4px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 6px 28px -4px rgba(16, 185, 129, 0.5);
   transform: translateY(-1px);
 }
 
-.btn-gradient {
-  background: linear-gradient(135deg, #d4af37 0%, #b48a1d 100%);
-  color: #080b09;
-  box-shadow: 0 0 35px -10px rgba(212, 175, 55, 0.4);
-  transition: all 0.25s ease;
-}
-
-.btn-gradient:hover {
-  box-shadow: 0 0 45px -8px rgba(212, 175, 55, 0.6);
-}
-
 .btn-secondary {
-  background: rgba(22, 32, 25, 0.8);
+  background: rgba(13, 36, 28, 0.8);
   border: 1px solid var(--border-subtle);
   color: var(--foreground);
   transition: all 0.25s ease;
@@ -102,14 +120,14 @@ body {
 
 .btn-secondary:hover {
   border-color: var(--accent);
-  background: rgba(30, 44, 35, 0.9);
+  background: rgba(20, 53, 41, 0.9);
 }
 
 .aurora-blob {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(100px);
-  opacity: 0.22;
+  filter: blur(110px);
+  opacity: 0.25;
   will-change: transform;
 }
 
@@ -121,4 +139,5 @@ body {
   0%, 100% { transform: translate(5%, 6%) scale(1.05); }
   50% { transform: translate(-5%, -6%) scale(0.95); }
 }
+
 
