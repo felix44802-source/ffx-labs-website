@@ -48,6 +48,15 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
                 {copy.pricing.starter.desc}
               </p>
 
+              <p className="mt-6 flex items-baseline gap-2">
+                <span className="text-4xl font-extrabold tracking-tight text-foreground">
+                  {copy.pricing.starter.price}
+                </span>
+                <span className="font-mono text-xs text-foreground-muted">
+                  {copy.pricing.starter.priceDetail}
+                </span>
+              </p>
+
               <a
                 href={whatsappHref}
                 target="_blank"
@@ -85,6 +94,15 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
               </h3>
               <p className="mt-2 text-xs text-foreground-muted">
                 {copy.pricing.enterprise.desc}
+              </p>
+
+              <p className="mt-6 flex items-baseline gap-2">
+                <span className="text-4xl font-extrabold tracking-tight text-foreground">
+                  {copy.pricing.enterprise.price}
+                </span>
+                <span className="font-mono text-xs text-foreground-muted">
+                  {copy.pricing.enterprise.priceDetail}
+                </span>
               </p>
 
               <a
@@ -127,6 +145,15 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
           </h3>
           <p className="mt-3 max-w-xl mx-auto text-sm text-foreground-muted leading-relaxed">
             {copy.pricing.professional.desc}
+          </p>
+
+          <p className="mt-6 flex flex-wrap items-baseline justify-center gap-2">
+            <span className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+              {copy.pricing.professional.price}
+            </span>
+            <span className="font-mono text-sm text-foreground-muted">
+              {copy.pricing.professional.priceDetail}
+            </span>
           </p>
 
           <a

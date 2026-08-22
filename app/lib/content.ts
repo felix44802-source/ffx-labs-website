@@ -101,10 +101,12 @@ const content = {
     },
     pricing: {
       heading: "Tailored Plans for Your Business Scale",
-      subheading: "Flexible custom pricing for any local business size.",
+      subheading: "Straightforward pricing. No hidden fees, no long-term lock-in.",
       starter: {
         name: "Starter",
         desc: "Essential digital presence package for small businesses getting started.",
+        price: "$500",
+        priceDetail: "one-time",
         features: [
           "High-speed AI-optimized website",
           "Basic WhatsApp instant chat routing",
@@ -116,17 +118,21 @@ const content = {
       enterprise: {
         name: "Enterprise",
         desc: "Full-scale custom automation and multi-channel lead acquisition.",
+        price: "Custom",
+        priceDetail: "let's talk",
         features: [
           "Unlimited custom bot interactions",
           "Dedicated automation engineer",
           "Full CRM & payment integrations",
           "Predictive lead optimization",
         ],
-        cta: "Get Started",
+        cta: "Get a Quote",
       },
       professional: {
         name: "Professional · The Complete Bundle",
         desc: "Designed for high-growth businesses. Combines Website + WhatsApp AI Bot + Targeted Lead Generation for complete hands-off scaling.",
+        price: "$500 setup + $250",
+        priceDetail: "/mo",
         badge: "Recommended Option",
         cta: "Get Started",
       },
@@ -275,10 +281,12 @@ const content = {
     },
     pricing: {
       heading: "Planes a la Medida de Tu Negocio",
-      subheading: "Precios y cotizaciones flexibles para cualquier tamaño de negocio.",
+      subheading: "Precios claros. Sin costos ocultos ni contratos forzosos.",
       starter: {
         name: "Starter",
         desc: "Paquete esencial de presencia digital para negocios que inician.",
+        price: "$500",
+        priceDetail: "pago único",
         features: [
           "Sitio web optimizado de alta velocidad",
           "Enrutamiento directo a WhatsApp",
@@ -290,17 +298,21 @@ const content = {
       enterprise: {
         name: "Enterprise",
         desc: "Automatización completa a gran escala y adquisición multicanal.",
+        price: "Personalizado",
+        priceDetail: "hablemos",
         features: [
           "Interacciones ilimitadas con bot de IA",
           "Ingeniero de automatización dedicado",
           "Integración completa con CRM y pagos",
           "Optimización predictiva de leads",
         ],
-        cta: "Comenzar",
+        cta: "Cotizar",
       },
       professional: {
         name: "Professional · El Paquete Completo",
         desc: "Diseñado para negocios en crecimiento. Combina Sitio Web + Bot de WhatsApp + Generación de Leads para escalar sin esfuerzo.",
+        price: "$500 instalación + $250",
+        priceDetail: "/mes",
         badge: "Opción Recomendada",
         cta: "Comenzar",
       },
