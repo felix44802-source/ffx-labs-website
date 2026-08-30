@@ -42,18 +42,18 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
         {/* Section Header */}
         <div className="mb-16 text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.5, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5 }}
             className="text-3xl font-extrabold text-foreground md:text-5xl"
           >
             {copy.servicesHeading}
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.5, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-4 max-w-xl mx-auto text-sm text-foreground-muted"
           >
@@ -69,9 +69,9 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0.5, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
               whileHover={{ y: -4 }}
               className="group relative flex flex-col justify-between rounded-2xl border border-border-subtle bg-[#0d241c] p-8 transition-all hover:border-accent hover:shadow-[0_10px_35px_-10px_rgba(16,185,129,0.25)]"

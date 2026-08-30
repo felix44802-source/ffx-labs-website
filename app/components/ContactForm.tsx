@@ -28,9 +28,9 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
     <section id="contact" className="relative border-b border-border bg-[#091b15] py-28 px-6 md:px-12">
       <div className="mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.5, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.5 }}
           className="mb-14 text-center"
         >
@@ -56,9 +56,9 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
           </div>
         ) : (
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0.5, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.15 }}
             className="grid gap-8 md:grid-cols-[1fr_280px]"
           >

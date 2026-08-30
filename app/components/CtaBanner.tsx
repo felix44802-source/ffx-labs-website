@@ -9,9 +9,9 @@ export function CtaBanner({ copy }: { copy: SiteContent }) {
     <section className="border-b border-border bg-[#091b15] py-24 px-6 md:px-12">
       <div className="mx-auto max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.5, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6 }}
           className="rounded-3xl border border-accent/30 bg-gradient-to-br from-[#0d241c] to-[#081a13] p-12 text-center shadow-[0_20px_60px_-15px_rgba(16,185,129,0.2)] md:p-16"
         >

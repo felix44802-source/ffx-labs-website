@@ -8,11 +8,11 @@ export function Navbar({ copy, locale }: { copy: SiteContent; locale: Locale }) 
   const otherLocale = locale === "en" ? "es" : "en";
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-[#091b15]/90 backdrop-blur-md transition-all">
+    <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/90 backdrop-blur-md transition-all">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12">
         {/* Brand Logo & Name */}
         <a href={`/${locale}`} className="flex items-center gap-3 group" aria-label={copy.brand.name}>
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-[#0d241c] border border-accent/40 shadow-[0_0_15px_-4px_rgba(16,185,129,0.3)] transition-transform group-hover:scale-105">
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-card-bg border border-accent/40 shadow-[0_0_15px_-4px_rgba(20,184,166,0.3)] transition-transform group-hover:scale-105">
             <Image src="/logo.png" alt="Fx Labs Logo" width={40} height={40} priority className="h-8 w-8 object-contain" />
           </div>
           <span className="font-mono text-base font-bold tracking-[0.18em] text-foreground uppercase md:text-lg">
@@ -43,7 +43,7 @@ export function Navbar({ copy, locale }: { copy: SiteContent; locale: Locale }) 
         <div className="flex items-center gap-4">
           <a
             href={`/${otherLocale}`}
-            className="rounded-lg border border-border-subtle bg-[#0d241c] px-3 py-1.5 font-mono text-xs font-semibold text-foreground-muted transition-colors hover:border-accent hover:text-foreground"
+            className="rounded-lg border border-border-subtle bg-card-bg px-3 py-1.5 text-xs font-semibold text-foreground-muted transition-colors hover:border-accent hover:text-foreground"
             title="Switch Language"
           >
             {copy.language}

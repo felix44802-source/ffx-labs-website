@@ -11,9 +11,9 @@ export function About({ copy }: { copy: SiteContent }) {
         <div className="grid gap-12 lg:grid-cols-[360px_1fr] lg:items-center lg:gap-16">
           {/* Founder Photo Frame */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0.5, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6 }}
             className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border-2 border-accent/40 bg-[#0d241c] shadow-[0_0_50px_-15px_rgba(16,185,129,0.25)] lg:mx-0"
           >
@@ -34,9 +34,9 @@ export function About({ copy }: { copy: SiteContent }) {
 
           {/* Bio & Philosophy */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0.5, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6 }}
           >
             <p className="font-mono text-xs font-semibold tracking-[0.25em] text-accent uppercase">

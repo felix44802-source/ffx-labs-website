@@ -13,7 +13,7 @@ export function Aurora({ className = "" }: { className?: string }) {
       return;
     }
 
-    let rafId: number;
+    let rafId: number | null = null;
     let targetX = typeof window !== "undefined" ? window.innerWidth / 2 : 400;
     let targetY = 250;
     let currentX = targetX;
@@ -41,12 +41,40 @@ export function Aurora({ className = "" }: { className?: string }) {
       rafId = requestAnimationFrame(animate);
     };
 
+    const startLoop = () => {
+      if (rafId === null) {
+        rafId = requestAnimationFrame(animate);
+      }
+    };
+
+    const stopLoop = () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startLoop();
+        } else {
+          stopLoop();
+        }
+      },
+      { threshold: 0 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
-    rafId = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);
-      cancelAnimationFrame(rafId);
+      observer.disconnect();
+      stopLoop();
     };
   }, []);
 

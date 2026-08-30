@@ -11,18 +11,18 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
         {/* Header */}
         <div className="mb-16 text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.5, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5 }}
             className="text-3xl font-extrabold text-foreground md:text-5xl"
           >
             {copy.pricing.heading}
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.5, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-4 text-sm text-foreground-muted"
           >
@@ -34,7 +34,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
         <div className="grid gap-6 md:grid-cols-2">
           {/* 1. Starter */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.5, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5 }}
@@ -82,7 +82,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
 
           {/* 2. Enterprise */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.5, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5, delay: 0.15 }}
@@ -131,7 +131,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
 
         {/* Wide Bottom Card (Professional / The Complete Bundle) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.5, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.6, delay: 0.2 }}

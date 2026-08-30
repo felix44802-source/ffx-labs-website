@@ -174,7 +174,7 @@ const content = {
     footer: {
       tagline: "Our systems make your digital presence faster, smarter, and always online.",
       companyTitle: "Company",
-      companyLinks: ["About Us", "Customers", "Newsroom", "Events"],
+      companyLinks: ["About Us", "Customers"],
       servicesTitle: "Services",
       servicesLinks: ["Website Engineering", "WhatsApp Bots", "Lead Generation", "AI Integrations"],
       getInTouchTitle: "Get in Touch",
@@ -355,7 +355,7 @@ const content = {
     footer: {
       tagline: "Nuestros sistemas hacen que tu presencia digital sea más rápida, inteligente y siempre activa.",
       companyTitle: "Empresa",
-      companyLinks: ["Sobre Mí", "Clientes", "Noticias", "Eventos"],
+      companyLinks: ["Sobre Mí", "Clientes"],
       servicesTitle: "Servicios",
       servicesLinks: ["Ingeniería Web", "Bots de WhatsApp", "Generación de Leads", "Integraciones IA"],
       getInTouchTitle: "Contacto",

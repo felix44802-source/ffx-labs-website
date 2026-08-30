@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Navbar } from "@/app/components/Navbar";
 import { Hero } from "@/app/components/Hero";
+import { StatsStrip } from "@/app/components/StatsStrip";
 import { ServicesBento } from "@/app/components/ServicesBento";
 import { BenefitsDashboard } from "@/app/components/BenefitsDashboard";
 import { PricingBento } from "@/app/components/PricingBento";
@@ -27,6 +28,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <Hero copy={copy} />
         <ServicesBento copy={copy} />
         <BenefitsDashboard copy={copy} />
+        <StatsStrip copy={copy} />
         <PricingBento copy={copy} />
         <IntegrationsOrbital copy={copy} />
         <About copy={copy} />
