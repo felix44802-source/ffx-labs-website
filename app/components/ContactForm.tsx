@@ -21,7 +21,8 @@ async function action(_prevState: FormState, formData: FormData) {
 
 export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent }) {
   const [state, formAction, pending] = useActionState(action, initialState);
-  const errors = state.ok === false ? state.errors : undefined;
+  const errors = state.ok === false && "errors" in state ? state.errors : undefined;
+  const deliveryFailed = state.ok === false && "deliveryFailed" in state;
 
   return (
     <section id="contact" className="relative border-b border-border bg-[#091b15] py-28 px-6 md:px-12">
@@ -63,6 +64,22 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
           >
             {/* Form */}
             <form action={formAction} className="flex flex-col gap-4">
+              {deliveryFailed && (
+                <div
+                  role="alert"
+                  className="rounded-2xl border border-amber-400/40 bg-amber-400/10 px-4 py-3 text-xs leading-relaxed text-amber-200"
+                >
+                  {copy.contact.deliveryFailed}{" "}
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold underline underline-offset-2"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              )}
               <div>
                 <input
                   name="name"

@@ -24,6 +24,9 @@ for domain vocabulary and `docs/adr/` for decisions with lasting rationale.
   detection/redirect, `app/lib/locale.ts` with tests. Both languages are fully
   translated in `app/lib/content.ts`.
 - **Real founder photo** at `public/felix-profile.png`, rendered in `About`.
+- **New logo**: `public/logo.png` is now the 3D "FX" ribbon icon (cropped from
+  `Logo/fxlab_3d_ribbon.jpg`, background keyed transparent). Old wordmark
+  backed up at `Logo/logo-old-backup.png`.
 - **Real WhatsApp number**: `https://wa.me/16197452934` in `app/lib/content.ts`.
 - **Prices are back on the page** (`b019a84`): Starter $500 one-time,
   Professional · The Complete Bundle $500 setup + $250/mo, Enterprise
@@ -33,7 +36,8 @@ for domain vocabulary and `docs/adr/` for decisions with lasting rationale.
   for it exists yet.
 - **Contact form built test-first (TDD)**: `app/lib/contact.ts` validates and
   records a `Lead` through an injected `recordLead` boundary. Wired end-to-end
-  through a Server Action (`app/actions/contact.ts`). 10 tests passing.
+  through a Server Action (`app/actions/contact.ts`). 19 tests passing across
+  the form, the lead email and locale routing.
 - **WhatsApp bot shipped** — it lives in its own sibling repo (Forja), not
   here. Live on Telegram with Cal.com booking, FAQ knowledge base, escalation
   tickets, business hours and a `restart` command. Design spec:
@@ -43,10 +47,17 @@ for domain vocabulary and `docs/adr/` for decisions with lasting rationale.
 
 Roughly in order of what it costs you to leave undone.
 
-- **Leads submitted through the form go nowhere.** `app/lib/recordLead.ts` is
-  still an MVP stub that `console.log`s server-side. On Vercel that means a
-  real Lead is written to a log nobody reads and then lost. Needs an email
-  send or a DB write. **This is the one that costs money today.**
+- **Lead email is built and provisioned.** `app/lib/recordLead.ts` is no
+  longer a stub: it formats the Lead (`app/lib/leadEmail.ts`) and sends it
+  through Resend, and the form now shows a retry + WhatsApp fallback instead
+  of a false success when delivery fails. Tests, typecheck and build all
+  pass. `RESEND_API_KEY`, `LEAD_EMAIL_FROM` and `LEAD_EMAIL_TO` are set in the
+  Vercel project. Email was chosen over a database on purpose: the inbox is a
+  record Felix actually reads.
+- **The contact form is a public endpoint with no rate limit.** A Server Action
+  compiles to a POST anyone can call. That was harmless when it only wrote a
+  log line; now each hit costs a real email send. Wants BotID or a rate limit
+  before the site sees real traffic.
 - **"Try Demo" is a dead CTA** — it links to `#services`. The Telegram bot is
   live and would be a real demo to point it at.
 - **Hero metrics are fabricated and deliberately left in place** (decided

@@ -102,4 +102,22 @@ describe("submitContactForm", () => {
     });
     expect(recordLead).not.toHaveBeenCalled();
   });
+  it("reports a delivery failure instead of a false success when recording throws", async () => {
+    const recordLead = vi.fn(async () => {
+      throw new Error("Resend is down");
+    });
+
+    const result = await submitContactForm(
+      {
+        name: "Jordan Lee",
+        contact: "jordan@example.com",
+        businessType: "Restaurant",
+        message: "",
+      },
+      recordLead,
+    );
+
+    expect(result).toEqual({ ok: false, deliveryFailed: true });
+    expect(recordLead).toHaveBeenCalled();
+  });
 });

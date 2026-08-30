@@ -164,6 +164,7 @@ const content = {
       send: "Send",
       sending: "Sending...",
       success: "Thanks — I'll get back to you soon.",
+      deliveryFailed: "Your message didn't go through. Please try again, or message Felix directly on WhatsApp.",
       errors: {
         name: "Name is required",
         contact: "A way to reach you is required",
@@ -344,6 +345,7 @@ const content = {
       send: "Enviar",
       sending: "Enviando...",
       success: "Gracias, te responderé pronto.",
+      deliveryFailed: "Tu mensaje no se pudo enviar. Inténtalo de nuevo o escríbele a Felix directo por WhatsApp.",
       errors: {
         name: "El nombre es obligatorio",
         contact: "Necesitamos una forma de contactarte",

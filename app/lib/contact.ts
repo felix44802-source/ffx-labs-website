@@ -18,7 +18,8 @@ export type ContactFormErrors = Partial<Record<keyof ContactFormInput, string>>;
 
 export type ContactFormResult =
   | { ok: true; leadId: string }
-  | { ok: false; errors: ContactFormErrors };
+  | { ok: false; errors: ContactFormErrors }
+  | { ok: false; deliveryFailed: true };
 
 export async function submitContactForm(
   input: ContactFormInput,
@@ -38,11 +39,17 @@ export async function submitContactForm(
     return { ok: false, errors };
   }
 
-  const { id } = await recordLead({
-    name: input.name,
-    contact: input.contact,
-    businessType: input.businessType,
-    message: input.message,
-  });
-  return { ok: true, leadId: id };
+  // A Lead is only "submitted" once it has actually been delivered somewhere.
+  // Recording can fail on the network, so never report success on a throw.
+  try {
+    const { id } = await recordLead({
+      name: input.name,
+      contact: input.contact,
+      businessType: input.businessType,
+      message: input.message,
+    });
+    return { ok: true, leadId: id };
+  } catch {
+    return { ok: false, deliveryFailed: true };
+  }
 }
