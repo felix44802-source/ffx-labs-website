@@ -6,12 +6,12 @@ import type { SiteContent } from "@/app/lib/content";
 import { whatsappHref } from "@/app/lib/content";
 
 const integrationsList = [
-  { name: "WhatsApp", color: "#25D366", label: "WA" },
-  { name: "OpenAI", color: "#10a37f", label: "AI" },
-  { name: "Stripe", color: "#635BFF", label: "Pay" },
-  { name: "Calendar", color: "#4285F4", label: "Cal" },
-  { name: "Meta", color: "#0081FB", label: "Ads" },
-  { name: "CRM", color: "#FF7A59", label: "CRM" },
+  { name: "WhatsApp", color: "#2dd4bf", label: "WA" },
+  { name: "OpenAI", color: "#2dd4bf", label: "AI" },
+  { name: "Stripe", color: "#2dd4bf", label: "Pay" },
+  { name: "Calendar", color: "#2dd4bf", label: "Cal" },
+  { name: "Meta", color: "#2dd4bf", label: "Ads" },
+  { name: "CRM", color: "#2dd4bf", label: "CRM" },
 ];
 
 export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {

@@ -14,9 +14,9 @@ export function Hero({ copy }: { copy: SiteContent }) {
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center">
         {/* Main Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.6, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="max-w-4xl text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-6xl md:text-7xl"
         >
           {copy.hero.headline}
