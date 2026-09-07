@@ -4,12 +4,12 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import type { SiteContent } from "@/app/lib/content";
 import { whatsappHref } from "@/app/lib/content";
-import { Aurora } from "./Aurora";
+import { OceanBackground } from "./OceanBackground";
 
 export function Hero({ copy }: { copy: SiteContent }) {
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden border-b border-border bg-background px-6 pt-20 pb-20 text-center md:pt-28 md:pb-28">
-      <Aurora />
+    <section className="relative flex flex-col items-center justify-center overflow-hidden border-b border-border bg-[#05090b] px-6 pt-20 pb-20 text-center md:pt-28 md:pb-28">
+      <OceanBackground />
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center">
         {/* Main Headline */}

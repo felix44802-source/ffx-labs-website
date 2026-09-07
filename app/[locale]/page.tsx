@@ -22,7 +22,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const copy = getContent(locale);
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-[#091b15]">
+    <div className="relative flex min-h-screen flex-col bg-[#05090b]">
       <Navbar copy={copy} locale={locale} />
       <main className="flex-1">
         <Hero copy={copy} />

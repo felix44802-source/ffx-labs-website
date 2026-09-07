@@ -4,13 +4,13 @@ import { whatsappHref } from "@/app/lib/content";
 
 export function Footer({ copy }: { copy: SiteContent }) {
   return (
-    <footer className="relative border-t border-border bg-[#06140f] py-20 px-6 text-foreground-muted md:px-12">
+    <footer className="relative border-t border-border bg-[#030607] py-20 px-6 text-foreground-muted md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
           {/* Column 1: Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0d241c] border border-accent/30 shadow-md">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#091216] border border-accent/30 shadow-md">
                 <Image src="/logo.png" alt="Fx Labs" width={36} height={36} className="h-8 w-8 object-contain" />
               </div>
               <span className="font-mono text-base font-bold tracking-[0.2em] text-foreground uppercase">
@@ -65,7 +65,7 @@ export function Footer({ copy }: { copy: SiteContent }) {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0d241c] border border-border-subtle hover:border-accent text-accent transition-colors"
+                className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#091216] border border-border-subtle hover:border-accent text-accent transition-colors"
                 title="WhatsApp"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">

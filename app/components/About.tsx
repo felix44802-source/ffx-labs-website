@@ -6,7 +6,7 @@ import type { SiteContent } from "@/app/lib/content";
 
 export function About({ copy }: { copy: SiteContent }) {
   return (
-    <section id="about" className="relative border-b border-border bg-[#091b15] py-28 px-6 md:px-12">
+    <section id="about" className="relative border-b border-border bg-[#05090b] py-28 px-6 md:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[360px_1fr] lg:items-center lg:gap-16">
           {/* Founder Photo Frame */}
@@ -15,7 +15,7 @@ export function About({ copy }: { copy: SiteContent }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6 }}
-            className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border-2 border-accent/40 bg-[#0d241c] shadow-[0_0_50px_-15px_rgba(16,185,129,0.25)] lg:mx-0"
+            className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border-2 border-accent/40 bg-[#091216] shadow-[0_0_50px_-15px_rgba(6,182,212,0.25)] lg:mx-0"
           >
             <Image
               src="/felix-profile.png"
@@ -25,8 +25,8 @@ export function About({ copy }: { copy: SiteContent }) {
               sizes="(min-width: 1024px) 360px, 90vw"
             />
             {/* Subtle Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#091b15]/85 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-accent/30 bg-[#091b15]/80 px-4 py-2.5 backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#05090b]/85 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-accent/30 bg-[#05090b]/80 px-4 py-2.5 backdrop-blur-md">
               <p className="font-mono text-xs font-bold text-foreground">Felix</p>
               <p className="font-mono text-[10px] text-accent uppercase tracking-wider">{copy.about.role}</p>
             </div>

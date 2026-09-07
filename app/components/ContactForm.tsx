@@ -25,7 +25,7 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
   const deliveryFailed = state.ok === false && "deliveryFailed" in state;
 
   return (
-    <section id="contact" className="relative border-b border-border bg-[#091b15] py-28 px-6 md:px-12">
+    <section id="contact" className="relative border-b border-border bg-[#05090b] py-28 px-6 md:px-12">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0.5, y: 20 }}
@@ -43,13 +43,13 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
           <p className="mt-4 max-w-xl mx-auto text-sm text-foreground-muted">
             {copy.contact.subheading}
           </p>
-          <div className="mt-4 inline-block rounded-full border border-border-subtle bg-[#0d241c] px-4 py-1.5 font-mono text-xs text-foreground-muted">
+          <div className="mt-4 inline-block rounded-full border border-border-subtle bg-[#091216] px-4 py-1.5 font-mono text-xs text-foreground-muted">
             {copy.contact.welcome}
           </div>
         </motion.div>
 
         {state.ok === true ? (
-          <div role="status" className="rounded-3xl border border-accent/40 bg-[#0d241c] p-8 text-center shadow-lg">
+          <div role="status" className="rounded-3xl border border-accent/40 bg-[#091216] p-8 text-center shadow-lg">
             <p className="font-mono text-lg font-bold text-accent">
               {copy.contact.success}
             </p>
@@ -85,7 +85,7 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
                   name="name"
                   placeholder={copy.contact.name}
                   aria-describedby={errors?.name ? "name-error" : undefined}
-                  className="w-full rounded-2xl border border-border-subtle bg-[#0d241c] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
+                  className="w-full rounded-2xl border border-border-subtle bg-[#091216] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
                 />
                 {errors?.name && (
                   <p id="name-error" className="mt-1 text-xs text-amber-400">
@@ -99,7 +99,7 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
                   name="contact"
                   placeholder={copy.contact.contact}
                   aria-describedby={errors?.contact ? "contact-error" : undefined}
-                  className="w-full rounded-2xl border border-border-subtle bg-[#0d241c] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
+                  className="w-full rounded-2xl border border-border-subtle bg-[#091216] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
                 />
                 {errors?.contact && (
                   <p id="contact-error" className="mt-1 text-xs text-amber-400">
@@ -115,13 +115,13 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
                   aria-describedby={
                     errors?.businessType ? "business-type-error" : undefined
                   }
-                  className="w-full rounded-2xl border border-border-subtle bg-[#0d241c] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
+                  className="w-full rounded-2xl border border-border-subtle bg-[#091216] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
                 >
-                  <option value="" disabled className="bg-[#0d241c] text-foreground-muted">
+                  <option value="" disabled className="bg-[#091216] text-foreground-muted">
                     {copy.contact.businessType}
                   </option>
                   {copy.contact.options.map((option) => (
-                    <option key={option} value={option} className="bg-[#0d241c] text-foreground">
+                    <option key={option} value={option} className="bg-[#091216] text-foreground">
                       {option}
                     </option>
                   ))}
@@ -138,7 +138,7 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
                   name="message"
                   rows={4}
                   placeholder={copy.contact.message}
-                  className="w-full rounded-2xl border border-border-subtle bg-[#0d241c] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
+                  className="w-full rounded-2xl border border-border-subtle bg-[#091216] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
                 />
               </div>
 
@@ -152,7 +152,7 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
             </form>
 
             {/* Direct WhatsApp Callout Box */}
-            <div className="flex flex-col justify-between rounded-3xl border border-border-subtle bg-[#0d241c] p-6 text-left">
+            <div className="flex flex-col justify-between rounded-3xl border border-border-subtle bg-[#091216] p-6 text-left">
               <div>
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-accent">
                   Direct Line
