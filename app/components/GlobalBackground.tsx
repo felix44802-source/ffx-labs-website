@@ -2,11 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-interface MatrixBackgroundProps {
-  className?: string;
-}
-
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$%&*()@#?/+=<>{}[]~";
+const CHARS =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$%&*()@#?/+=<>{}[]~アイウエオカキクケコサシスセソタチツテト";
 
 interface Node {
   x: number;
@@ -30,16 +27,14 @@ interface Streak {
   width: number;
 }
 
-export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+export function GlobalBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current || !canvasRef.current) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const container = containerRef.current;
-    const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -50,10 +45,17 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
     let nodes: Node[] = [];
     let streaks: Streak[] = [];
     let rafId: number | null = null;
+    let resizeTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const isMobile = () => width < 768;
+    const mobileFactor = () => (isMobile() ? 0.6 : 1);
 
     const densityNodeCount = () =>
-      Math.floor(Math.min(220, Math.max(55, (width * height) / 6500)));
-    const streakCount = () => Math.floor(Math.min(45, Math.max(15, width / 40)));
+      Math.floor(
+        Math.min(220, Math.max(55, (width * height) / 6500)) * mobileFactor()
+      );
+    const streakCount = () =>
+      Math.floor(Math.min(45, Math.max(15, width / 40)) * mobileFactor());
 
     const createNodes = () => {
       const count = densityNodeCount();
@@ -66,7 +68,7 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
           vy: (Math.random() - 0.5) * 0.45,
           char: CHARS[Math.floor(Math.random() * CHARS.length)],
           fontSize: Math.floor(Math.random() * 4) + 11,
-          baseAlpha: Math.random() * 0.35 + 0.2,
+          baseAlpha: Math.random() * 0.2 + 0.15,
           glitchTimer: Math.floor(Math.random() * 200),
           pulseSpeed: Math.random() * 0.02 + 0.01,
           pulseVal: Math.random() * Math.PI,
@@ -83,15 +85,15 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
           y: Math.random() * height,
           length: Math.random() * 50 + 25,
           speed: Math.random() * 2.2 + 1.2,
-          alpha: Math.random() * 0.4 + 0.2,
+          alpha: Math.random() * 0.3 + 0.15,
           width: Math.random() * 1.2 + 0.6,
         });
       }
     };
 
     const resize = () => {
-      width = container.clientWidth;
-      height = container.clientHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
@@ -101,11 +103,15 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
       createStreaks();
     };
 
+    const debouncedResize = () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 150);
+    };
+
     const handlePointerMove = (e: PointerEvent) => {
-      const rect = container.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-      mouse.isActive = mouse.x >= 0 && mouse.x <= width && mouse.y >= 0 && mouse.y <= height;
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.isActive = true;
     };
 
     const handlePointerLeave = () => {
@@ -115,10 +121,10 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
     };
 
     const draw = () => {
-      ctx.fillStyle = "#05090b";
+      ctx.fillStyle = "#050708";
       ctx.fillRect(0, 0, width, height);
 
-      // Falling light streaks
+      // Falling code rain streaks
       for (const s of streaks) {
         s.y += s.speed;
         if (s.y - s.length > height) {
@@ -131,7 +137,7 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
         const grad = ctx.createLinearGradient(s.x, s.y - s.length, s.x, s.y);
         grad.addColorStop(0, "rgba(6, 182, 212, 0)");
         grad.addColorStop(0.7, `rgba(34, 211, 238, ${s.alpha * 0.4})`);
-        grad.addColorStop(1, `rgba(165, 243, 252, ${s.alpha * 0.85})`);
+        grad.addColorStop(1, `rgba(165, 243, 252, ${s.alpha * 0.75})`);
 
         ctx.beginPath();
         ctx.moveTo(s.x, s.y - s.length);
@@ -168,10 +174,10 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
           const dist = Math.hypot(dx, dy);
           if (dist < connectionMaxDist) {
             const normDist = 1 - dist / connectionMaxDist;
-            let lineAlpha = normDist * 0.18;
+            let lineAlpha = normDist * 0.16;
             const distMB = Math.hypot(mouse.x - b.x, mouse.y - b.y);
             if (mouse.isActive && (distM < mouse.radius || distMB < mouse.radius)) {
-              lineAlpha = Math.min(0.7, lineAlpha + 0.35);
+              lineAlpha = Math.min(0.6, lineAlpha + 0.3);
               ctx.strokeStyle = `rgba(34, 211, 238, ${lineAlpha})`;
               ctx.lineWidth = 1.1;
             } else {
@@ -187,7 +193,7 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
 
         if (isNearMouse) {
           const proximity = 1 - distM / mouse.radius;
-          const lineAlpha = proximity * 0.85;
+          const lineAlpha = proximity * 0.75;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(mouse.x, mouse.y);
@@ -210,13 +216,13 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
         const isNearMouse = mouse.isActive && distM < mouse.radius;
 
         node.pulseVal += node.pulseSpeed;
-        const pulseAlpha = Math.sin(node.pulseVal) * 0.1 + node.baseAlpha;
+        const pulseAlpha = Math.sin(node.pulseVal) * 0.08 + node.baseAlpha;
 
         ctx.font = `600 ${node.fontSize}px 'JetBrains Mono', 'Fira Code', 'Courier New', monospace`;
 
         if (isNearMouse) {
           const proximity = 1 - distM / mouse.radius;
-          const brightAlpha = Math.min(1, 0.4 + proximity * 0.6);
+          const brightAlpha = Math.min(0.9, 0.35 + proximity * 0.55);
           ctx.shadowColor = "#38bdf8";
           ctx.shadowBlur = 12 * proximity + 4;
           ctx.fillStyle = `rgba(186, 230, 253, ${brightAlpha})`;
@@ -255,37 +261,44 @@ export function MatrixBackground({ className = "" }: MatrixBackgroundProps) {
       }
     };
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) stopAnimation();
+      else startAnimation();
+    };
+
     resize();
     startAnimation();
 
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", debouncedResize);
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
-    container.addEventListener("pointerleave", handlePointerLeave);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => (entry.isIntersecting ? startAnimation() : stopAnimation()),
-      { threshold: 0 }
-    );
-    observer.observe(container);
+    window.addEventListener("pointerleave", handlePointerLeave);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", debouncedResize);
       window.removeEventListener("pointermove", handlePointerMove);
-      container.removeEventListener("pointerleave", handlePointerLeave);
-      observer.disconnect();
+      window.removeEventListener("pointerleave", handlePointerLeave);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      if (resizeTimer) clearTimeout(resizeTimer);
       stopAnimation();
     };
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className={`pointer-events-none absolute inset-0 overflow-hidden bg-[#05090b] ${className}`}
-      aria-hidden="true"
-    >
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#05090b] via-transparent to-[#05090b]/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#05090b]/80 via-transparent to-[#05090b]/80" />
-    </div>
+    <>
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 h-full w-full bg-[#050708]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-[1]"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(5,7,8,0) 0%, rgba(5,7,8,0.55) 70%, rgba(5,7,8,0.85) 100%)",
+        }}
+      />
+    </>
   );
 }

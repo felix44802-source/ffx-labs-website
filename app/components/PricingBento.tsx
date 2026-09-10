@@ -26,7 +26,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
   const customWhatsAppHref = `https://wa.me/16197452934?text=${whatsappMessage}`;
 
   return (
-    <section id="pricing" className="relative border-b border-border bg-[#05090b] py-28 px-6 md:px-12 overflow-hidden">
+    <section id="pricing" className="relative py-28 px-6 md:px-12 overflow-hidden">
       {/* Ambient background glow */}
       <div className="pointer-events-none absolute left-1/2 top-20 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-accent/5 blur-[140px]" />
 
@@ -65,7 +65,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col justify-between rounded-3xl border border-border-subtle bg-[#091216] p-8 transition-all hover:border-white/30"
+            className="flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] p-8 backdrop-blur-lg transition-all hover:border-white/30"
           >
             <div>
               <div className="flex items-center justify-between">
@@ -116,7 +116,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="relative flex flex-col justify-between rounded-3xl border-2 border-accent bg-gradient-to-b from-[#09181f] via-[#091216] to-[#04080a] p-8 shadow-[0_0_50px_-10px_rgba(6,182,212,0.35)]"
+            className="relative flex flex-col justify-between rounded-3xl border-2 border-accent bg-[rgba(10,15,18,0.6)] p-8 shadow-[0_0_50px_-10px_rgba(6,182,212,0.35)] backdrop-blur-lg"
           >
             <div>
               {/* Badge Hook */}

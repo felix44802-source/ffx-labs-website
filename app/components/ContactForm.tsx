@@ -25,7 +25,7 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
   const deliveryFailed = state.ok === false && "deliveryFailed" in state;
 
   return (
-    <section id="contact" className="relative border-b border-border bg-[#05090b] py-28 px-6 md:px-12">
+    <section id="contact" className="relative py-28 px-6 md:px-12">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0.5, y: 20 }}

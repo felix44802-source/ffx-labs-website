@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
 import "./globals.css";
+import { GlobalBackground } from "./components/GlobalBackground";
 
 const schibstedGrotesk = Schibsted_Grotesk({
   variable: "--font-sans",
@@ -23,7 +24,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${schibstedGrotesk.variable} ${martianMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <GlobalBackground />
+        {children}
+      </body>
     </html>
   );
 }

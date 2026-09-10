@@ -6,7 +6,7 @@ import { whatsappHref } from "@/app/lib/content";
 
 export function CtaBanner({ copy }: { copy: SiteContent }) {
   return (
-    <section className="border-b border-border bg-[#05090b] py-24 px-6 md:px-12">
+    <section className="relative py-24 px-6 md:px-12">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0.5, y: 30 }}

@@ -149,7 +149,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
   const radius = 135;
 
   return (
-    <section className="relative border-b border-border bg-[#05090b] py-28 px-6 text-foreground md:px-12 overflow-hidden">
+    <section className="relative py-28 px-6 text-foreground md:px-12 overflow-hidden">
       {/* Background Subtle Gradient */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(6,182,212,0.06),transparent_80%)]" />
 

@@ -6,7 +6,7 @@ import type { SiteContent } from "@/app/lib/content";
 
 export function About({ copy }: { copy: SiteContent }) {
   return (
-    <section id="about" className="relative border-b border-border bg-[#05090b] py-28 px-6 md:px-12">
+    <section id="about" className="relative py-28 px-6 md:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[360px_1fr] lg:items-center lg:gap-16">
           {/* Founder Photo Frame */}

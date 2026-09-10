@@ -8,7 +8,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
   const [website, bot, leads, tech, sync, consulting] = copy.bentoServices;
 
   return (
-    <section id="services" className="relative border-b border-border bg-[#05090b] py-28 px-6 md:px-12 overflow-hidden">
+    <section id="services" className="relative py-28 px-6 md:px-12 overflow-hidden">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2 h-96 w-[650px] rounded-full bg-accent/5 blur-[130px]" />
 
@@ -53,7 +53,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5 }}
             whileHover={{ y: -4 }}
-            className="group relative flex flex-col justify-between rounded-3xl border border-border-subtle bg-gradient-to-br from-[#091216] via-[#091216] to-[#040e13] p-8 transition-all hover:border-accent hover:shadow-[0_15px_45px_-10px_rgba(6,182,212,0.3)] md:col-span-2"
+            className="group relative flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] p-8 backdrop-blur-lg transition-all hover:border-accent hover:shadow-[0_15px_45px_-10px_rgba(6,182,212,0.3)] md:col-span-2"
           >
             <div>
               {/* Header Icon + Pill */}
@@ -120,7 +120,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             whileHover={{ y: -4 }}
-            className="group relative flex flex-col justify-between rounded-3xl border border-border-subtle bg-gradient-to-b from-[#091216] to-[#040e13] p-8 transition-all hover:border-[#25D366] hover:shadow-[0_15px_45px_-10px_rgba(37,211,102,0.25)]"
+            className="group relative flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] p-8 backdrop-blur-lg transition-all hover:border-[#25D366] hover:shadow-[0_15px_45px_-10px_rgba(37,211,102,0.25)]"
           >
             <div>
               <div className="flex items-center justify-between">
@@ -172,7 +172,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.16 }}
             whileHover={{ y: -4 }}
-            className="group relative flex flex-col justify-between rounded-3xl border border-border-subtle bg-[#091216] p-7 transition-all hover:border-accent hover:shadow-[0_12px_35px_-10px_rgba(6,182,212,0.25)]"
+            className="group relative flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] p-7 backdrop-blur-lg transition-all hover:border-accent hover:shadow-[0_12px_35px_-10px_rgba(6,182,212,0.25)]"
           >
             <div>
               <div className="flex items-center justify-between">
@@ -217,7 +217,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.22 }}
             whileHover={{ y: -4 }}
-            className="group relative flex flex-col justify-between rounded-3xl border border-border-subtle bg-[#091216] p-7 transition-all hover:border-accent hover:shadow-[0_12px_35px_-10px_rgba(6,182,212,0.25)]"
+            className="group relative flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] p-7 backdrop-blur-lg transition-all hover:border-accent hover:shadow-[0_12px_35px_-10px_rgba(6,182,212,0.25)]"
           >
             <div>
               <div className="flex items-center justify-between">
@@ -259,7 +259,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.28 }}
             whileHover={{ y: -4 }}
-            className="group relative flex flex-col justify-between rounded-3xl border border-border-subtle bg-[#091216] p-7 transition-all hover:border-accent hover:shadow-[0_12px_35px_-10px_rgba(6,182,212,0.25)]"
+            className="group relative flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] p-7 backdrop-blur-lg transition-all hover:border-accent hover:shadow-[0_12px_35px_-10px_rgba(6,182,212,0.25)]"
           >
             <div>
               <div className="flex items-center justify-between">
@@ -302,7 +302,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.34 }}
             whileHover={{ y: -4 }}
-            className="group relative flex flex-col justify-between rounded-3xl border border-border-subtle bg-gradient-to-r from-[#091216] via-[#0b171c] to-[#091216] p-7 transition-all hover:border-accent hover:shadow-[0_12px_35px_-10px_rgba(6,182,212,0.25)] md:col-span-2 lg:col-span-3 sm:flex-row sm:items-center sm:gap-8"
+            className="group relative flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] p-7 backdrop-blur-lg transition-all hover:border-accent hover:shadow-[0_12px_35px_-10px_rgba(6,182,212,0.25)] md:col-span-2 lg:col-span-3 sm:flex-row sm:items-center sm:gap-8"
           >
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#05090b] border border-accent/40 text-accent group-hover:scale-110 transition-transform">

@@ -4,7 +4,7 @@ import { whatsappHref } from "@/app/lib/content";
 
 export function Footer({ copy }: { copy: SiteContent }) {
   return (
-    <footer className="relative border-t border-border bg-[#030607] py-20 px-6 text-foreground-muted md:px-12">
+    <footer className="relative py-20 px-6 text-foreground-muted md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
           {/* Column 1: Brand */}

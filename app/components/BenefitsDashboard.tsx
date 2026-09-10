@@ -5,7 +5,7 @@ import type { SiteContent } from "@/app/lib/content";
 
 export function BenefitsDashboard({ copy }: { copy: SiteContent }) {
   return (
-    <section id="benefits" className="relative border-b border-border bg-background py-28 px-6 text-foreground md:px-12">
+    <section id="benefits" className="relative py-28 px-6 text-foreground md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-16 lg:grid-cols-[480px_1fr] lg:items-center">
           {/* Left: Floating Interactive Dashboard Widget Card */}
