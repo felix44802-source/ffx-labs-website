@@ -65,7 +65,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] p-8 backdrop-blur-lg transition-all hover:border-white/30"
+            className="flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[#05090b] p-8 backdrop-blur-lg transition-all hover:border-white/30"
           >
             <div>
               <div className="flex items-center justify-between">
@@ -116,7 +116,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="relative flex flex-col justify-between rounded-3xl border-2 border-accent bg-[rgba(10,15,18,0.6)] p-8 shadow-[0_0_50px_-10px_rgba(6,182,212,0.35)] backdrop-blur-lg"
+            className="relative flex flex-col justify-between rounded-3xl border-2 border-accent bg-[#05090b] p-8 shadow-[0_0_50px_-10px_rgba(6,182,212,0.35)] backdrop-blur-lg"
           >
             <div>
               {/* Badge Hook */}

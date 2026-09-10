@@ -9,6 +9,14 @@ export function Hero({ copy }: { copy: SiteContent }) {
   return (
     <section className="relative z-10 flex flex-col items-center justify-center overflow-hidden px-6 pt-20 pb-20 text-center md:pt-28 md:pb-28">
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            background:
+              "radial-gradient(60% 50% at 50% 45%, rgba(5,7,8,0.75) 0%, transparent 100%)",
+          }}
+        />
         {/* Main Headline */}
         <motion.h1
           initial={{ opacity: 0.6, y: 20 }}

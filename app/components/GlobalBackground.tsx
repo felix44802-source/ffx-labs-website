@@ -52,10 +52,12 @@ export function GlobalBackground() {
 
     const densityNodeCount = () =>
       Math.floor(
-        Math.min(220, Math.max(55, (width * height) / 6500)) * mobileFactor()
+        Math.min(70, Math.max(45, (width * height) / 16250)) * mobileFactor()
       );
     const streakCount = () =>
-      Math.floor(Math.min(45, Math.max(15, width / 40)) * mobileFactor());
+      Math.floor(
+        Math.min(45, Math.max(15, width / 40)) * 0.6 * mobileFactor()
+      );
 
     const createNodes = () => {
       const count = densityNodeCount();
@@ -123,6 +125,7 @@ export function GlobalBackground() {
     const draw = () => {
       ctx.fillStyle = "rgba(5, 7, 8, 0.07)";
       ctx.fillRect(0, 0, width, height);
+      ctx.shadowBlur = 0;
 
       // Falling code rain streaks
       for (const s of streaks) {
@@ -136,8 +139,8 @@ export function GlobalBackground() {
 
         const grad = ctx.createLinearGradient(s.x, s.y - s.length, s.x, s.y);
         grad.addColorStop(0, "rgba(6, 182, 212, 0)");
-        grad.addColorStop(0.7, "rgba(34, 211, 238, 0.28)");
-        grad.addColorStop(1, "rgba(180, 255, 245, 0.85)");
+        grad.addColorStop(0.7, "rgba(34, 211, 238, 0.16)");
+        grad.addColorStop(1, "rgba(180, 255, 245, 0.55)");
 
         ctx.beginPath();
         ctx.moveTo(s.x, s.y - s.length);
@@ -148,7 +151,8 @@ export function GlobalBackground() {
       }
 
       // Constellation nodes + connections
-      const connectionMaxDist = 110;
+      ctx.shadowBlur = 0;
+      const connectionMaxDist = 150;
       for (let i = 0; i < nodes.length; i++) {
         const a = nodes[i];
         a.x += a.vx;
@@ -174,13 +178,13 @@ export function GlobalBackground() {
           const dist = Math.hypot(dx, dy);
           if (dist < connectionMaxDist) {
             const normDist = 1 - dist / connectionMaxDist;
-            let lineAlpha = normDist * 0.3;
+            let lineAlpha = normDist * 0.46;
             const distMB = Math.hypot(mouse.x - b.x, mouse.y - b.y);
             if (mouse.isActive && (distM < mouse.radius || distMB < mouse.radius)) {
-              lineAlpha = Math.min(0.6, lineAlpha + 0.3);
+              lineAlpha = Math.min(0.45, lineAlpha + 0.18);
             }
             ctx.strokeStyle = `rgba(34, 211, 238, ${lineAlpha})`;
-            ctx.lineWidth = 1.1;
+            ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -224,7 +228,7 @@ export function GlobalBackground() {
         } else {
           ctx.shadowColor = "rgba(34, 211, 238, 0.6)";
           ctx.shadowBlur = 8;
-          ctx.fillStyle = `rgba(34, 211, 238, ${Math.min(0.75, pulseAlpha + 0.4)})`;
+          ctx.fillStyle = `rgba(34, 211, 238, ${Math.min(0.7, pulseAlpha + 0.4)})`;
           ctx.fillText(node.char, node.x, node.y);
           ctx.shadowBlur = 0;
         }
@@ -292,7 +296,7 @@ export function GlobalBackground() {
         className="pointer-events-none fixed inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(ellipse 120% 90% at 50% 50%, rgba(5,7,8,0) 0%, rgba(5,7,8,0.25) 65%, rgba(5,7,8,0.5) 100%)",
+            "radial-gradient(ellipse 120% 90% at 50% 50%, rgba(5,7,8,0) 0%, rgba(5,7,8,0.35) 60%, rgba(5,7,8,0.6) 100%)",
         }}
       />
     </>
