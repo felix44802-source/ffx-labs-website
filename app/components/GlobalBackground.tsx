@@ -121,7 +121,7 @@ export function GlobalBackground() {
     };
 
     const draw = () => {
-      ctx.fillStyle = "#050708";
+      ctx.fillStyle = "rgba(5, 7, 8, 0.07)";
       ctx.fillRect(0, 0, width, height);
 
       // Falling code rain streaks
@@ -136,8 +136,8 @@ export function GlobalBackground() {
 
         const grad = ctx.createLinearGradient(s.x, s.y - s.length, s.x, s.y);
         grad.addColorStop(0, "rgba(6, 182, 212, 0)");
-        grad.addColorStop(0.7, `rgba(34, 211, 238, ${s.alpha * 0.4})`);
-        grad.addColorStop(1, `rgba(165, 243, 252, ${s.alpha * 0.75})`);
+        grad.addColorStop(0.7, "rgba(34, 211, 238, 0.28)");
+        grad.addColorStop(1, "rgba(180, 255, 245, 0.85)");
 
         ctx.beginPath();
         ctx.moveTo(s.x, s.y - s.length);
@@ -174,16 +174,13 @@ export function GlobalBackground() {
           const dist = Math.hypot(dx, dy);
           if (dist < connectionMaxDist) {
             const normDist = 1 - dist / connectionMaxDist;
-            let lineAlpha = normDist * 0.16;
+            let lineAlpha = normDist * 0.3;
             const distMB = Math.hypot(mouse.x - b.x, mouse.y - b.y);
             if (mouse.isActive && (distM < mouse.radius || distMB < mouse.radius)) {
               lineAlpha = Math.min(0.6, lineAlpha + 0.3);
-              ctx.strokeStyle = `rgba(34, 211, 238, ${lineAlpha})`;
-              ctx.lineWidth = 1.1;
-            } else {
-              ctx.strokeStyle = `rgba(14, 116, 144, ${lineAlpha})`;
-              ctx.lineWidth = 0.8;
             }
+            ctx.strokeStyle = `rgba(34, 211, 238, ${lineAlpha})`;
+            ctx.lineWidth = 1.1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -193,16 +190,12 @@ export function GlobalBackground() {
 
         if (isNearMouse) {
           const proximity = 1 - distM / mouse.radius;
-          const lineAlpha = proximity * 0.75;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.shadowColor = "#22d3ee";
-          ctx.shadowBlur = 8;
-          ctx.strokeStyle = `rgba(34, 211, 238, ${lineAlpha})`;
+          ctx.strokeStyle = "rgba(34, 211, 238, 0.45)";
           ctx.lineWidth = 1.2 * proximity + 0.5;
           ctx.stroke();
-          ctx.shadowBlur = 0;
         }
       }
 
@@ -229,8 +222,11 @@ export function GlobalBackground() {
           ctx.fillText(node.char, node.x, node.y);
           ctx.shadowBlur = 0;
         } else {
-          ctx.fillStyle = `rgba(71, 129, 140, ${pulseAlpha})`;
+          ctx.shadowColor = "rgba(34, 211, 238, 0.6)";
+          ctx.shadowBlur = 8;
+          ctx.fillStyle = `rgba(34, 211, 238, ${Math.min(0.75, pulseAlpha + 0.4)})`;
           ctx.fillText(node.char, node.x, node.y);
+          ctx.shadowBlur = 0;
         }
       }
 
@@ -296,7 +292,7 @@ export function GlobalBackground() {
         className="pointer-events-none fixed inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(5,7,8,0) 0%, rgba(5,7,8,0.55) 70%, rgba(5,7,8,0.85) 100%)",
+            "radial-gradient(ellipse 120% 90% at 50% 50%, rgba(5,7,8,0) 0%, rgba(5,7,8,0.25) 65%, rgba(5,7,8,0.5) 100%)",
         }}
       />
     </>
