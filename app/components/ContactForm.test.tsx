@@ -24,6 +24,10 @@ async function fillInValidLead(user: ReturnType<typeof userEvent.setup>) {
     "jordan@example.com",
   );
   await user.selectOptions(screen.getByRole("combobox"), "Restaurant");
+  await user.type(
+    screen.getByPlaceholderText("Message"),
+    "Looking to get a website built.",
+  );
   await user.click(screen.getByRole("button", { name: /send/i }));
 }
 

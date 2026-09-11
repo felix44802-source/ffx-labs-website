@@ -105,6 +105,7 @@ export function BenefitsDashboard({ copy }: { copy: SiteContent }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-halo relative z-10"
           >
             <h2 className="text-3xl font-extrabold leading-tight text-foreground md:text-5xl">
               {copy.benefits.heading}

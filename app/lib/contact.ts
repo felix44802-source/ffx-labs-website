@@ -21,6 +21,18 @@ export type ContactFormResult =
   | { ok: false; errors: ContactFormErrors }
   | { ok: false; deliveryFailed: true };
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_PATTERN = /^\+?[0-9]{7,15}$/;
+
+function isValidContact(raw: string): boolean {
+  const value = raw.trim();
+  if (EMAIL_PATTERN.test(value)) {
+    return true;
+  }
+  const digitsOnly = value.replace(/[\s().-]/g, "");
+  return PHONE_PATTERN.test(digitsOnly);
+}
+
 export async function submitContactForm(
   input: ContactFormInput,
   recordLead: RecordLead,
@@ -31,9 +43,14 @@ export async function submitContactForm(
   }
   if (!input.contact.trim()) {
     errors.contact = "A way to reach you is required";
+  } else if (!isValidContact(input.contact)) {
+    errors.contact = "Enter a valid phone number or email";
   }
   if (!input.businessType.trim()) {
     errors.businessType = "Business type is required";
+  }
+  if (!input.message.trim()) {
+    errors.message = "A message is required";
   }
   if (Object.keys(errors).length > 0) {
     return { ok: false, errors };

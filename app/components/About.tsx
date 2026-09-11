@@ -38,6 +38,7 @@ export function About({ copy }: { copy: SiteContent }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6 }}
+            className="text-halo relative z-10"
           >
             <p className="font-mono text-xs font-semibold tracking-[0.25em] text-accent uppercase">
               Behind the Systems

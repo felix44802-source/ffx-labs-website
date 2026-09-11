@@ -10,7 +10,7 @@ describe("submitContactForm", () => {
         name: "Jordan Lee",
         contact: "jordan@example.com",
         businessType: "Restaurant",
-        message: "",
+        message: "Looking to get a website built.",
       },
       recordLead,
     );
@@ -20,8 +20,24 @@ describe("submitContactForm", () => {
       name: "Jordan Lee",
       contact: "jordan@example.com",
       businessType: "Restaurant",
-      message: "",
+      message: "Looking to get a website built.",
     });
+  });
+
+  it("accepts a phone number as a valid contact method", async () => {
+    const recordLead = vi.fn(async () => ({ id: "lead_1" }));
+
+    const result = await submitContactForm(
+      {
+        name: "Jordan Lee",
+        contact: "(619) 745-2934",
+        businessType: "Restaurant",
+        message: "Looking to get a website built.",
+      },
+      recordLead,
+    );
+
+    expect(result).toEqual({ ok: true, leadId: "lead_1" });
   });
 
   it("rejects a missing name without recording a lead", async () => {
@@ -32,7 +48,7 @@ describe("submitContactForm", () => {
         name: "",
         contact: "jordan@example.com",
         businessType: "Restaurant",
-        message: "",
+        message: "Looking to get a website built.",
       },
       recordLead,
     );
@@ -52,7 +68,7 @@ describe("submitContactForm", () => {
         name: "Jordan Lee",
         contact: "",
         businessType: "Restaurant",
-        message: "",
+        message: "Looking to get a website built.",
       },
       recordLead,
     );
@@ -60,6 +76,26 @@ describe("submitContactForm", () => {
     expect(result).toEqual({
       ok: false,
       errors: { contact: "A way to reach you is required" },
+    });
+    expect(recordLead).not.toHaveBeenCalled();
+  });
+
+  it("rejects a contact method that is neither a phone number nor an email", async () => {
+    const recordLead = vi.fn(async () => ({ id: "lead_1" }));
+
+    const result = await submitContactForm(
+      {
+        name: "Jordan Lee",
+        contact: "just call me maybe",
+        businessType: "Restaurant",
+        message: "Looking to get a website built.",
+      },
+      recordLead,
+    );
+
+    expect(result).toEqual({
+      ok: false,
+      errors: { contact: "Enter a valid phone number or email" },
     });
     expect(recordLead).not.toHaveBeenCalled();
   });
@@ -72,7 +108,7 @@ describe("submitContactForm", () => {
         name: "Jordan Lee",
         contact: "jordan@example.com",
         businessType: "",
-        message: "",
+        message: "Looking to get a website built.",
       },
       recordLead,
     );
@@ -80,6 +116,26 @@ describe("submitContactForm", () => {
     expect(result).toEqual({
       ok: false,
       errors: { businessType: "Business type is required" },
+    });
+    expect(recordLead).not.toHaveBeenCalled();
+  });
+
+  it("rejects a missing message without recording a lead", async () => {
+    const recordLead = vi.fn(async () => ({ id: "lead_1" }));
+
+    const result = await submitContactForm(
+      {
+        name: "Jordan Lee",
+        contact: "jordan@example.com",
+        businessType: "Restaurant",
+        message: "",
+      },
+      recordLead,
+    );
+
+    expect(result).toEqual({
+      ok: false,
+      errors: { message: "A message is required" },
     });
     expect(recordLead).not.toHaveBeenCalled();
   });
@@ -98,6 +154,7 @@ describe("submitContactForm", () => {
         name: "Name is required",
         contact: "A way to reach you is required",
         businessType: "Business type is required",
+        message: "A message is required",
       },
     });
     expect(recordLead).not.toHaveBeenCalled();
@@ -112,7 +169,7 @@ describe("submitContactForm", () => {
         name: "Jordan Lee",
         contact: "jordan@example.com",
         businessType: "Restaurant",
-        message: "",
+        message: "Looking to get a website built.",
       },
       recordLead,
     );

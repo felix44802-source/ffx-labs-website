@@ -8,15 +8,7 @@ import { whatsappHref } from "@/app/lib/content";
 export function Hero({ copy }: { copy: SiteContent }) {
   return (
     <section className="relative z-10 flex flex-col items-center justify-center overflow-hidden px-6 pt-20 pb-20 text-center md:pt-28 md:pb-28">
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(60% 50% at 50% 45%, rgba(5,7,8,0.75) 0%, transparent 100%)",
-          }}
-        />
+      <div className="text-halo relative z-10 mx-auto flex max-w-5xl flex-col items-center">
         {/* Main Headline */}
         <motion.h1
           initial={{ opacity: 0.6, y: 20 }}
@@ -68,6 +60,11 @@ export function Hero({ copy }: { copy: SiteContent }) {
             </div>
             <span className="font-bold text-foreground">{copy.hero.ratingScore}</span>
             <span>{copy.hero.ratingText}</span>
+          </div>
+
+          {/* Bilingual Support Pill */}
+          <div className="inline-flex items-center rounded-full border border-border-subtle bg-[#091216] px-4 py-1.5 font-mono text-xs text-foreground-muted">
+            {copy.hero.welcome}
           </div>
         </motion.div>
       </div>

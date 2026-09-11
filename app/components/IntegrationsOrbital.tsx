@@ -161,6 +161,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6 }}
+            className="text-halo relative z-10"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-[#091216] px-3.5 py-1.5 font-mono text-xs font-bold text-accent">
               <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />

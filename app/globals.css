@@ -98,6 +98,26 @@ body {
   border-color: var(--accent);
 }
 
+.text-halo {
+  position: relative;
+  z-index: 1;
+}
+
+.text-halo::before {
+  content: "";
+  position: absolute;
+  inset: -8% -6%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    75% 65% at 50% 50%,
+    rgba(5, 7, 8, 0.92) 0%,
+    rgba(5, 7, 8, 0.72) 45%,
+    rgba(5, 7, 8, 0.35) 75%,
+    rgba(5, 7, 8, 0) 100%
+  );
+}
+
 .btn-primary {
   background: #06b6d4;
   color: #021117;

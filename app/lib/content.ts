@@ -167,15 +167,16 @@ const content = {
       contact: "Phone, WhatsApp, or email",
       businessType: "Business type",
       options: ["Restaurant", "Shop", "Contractor", "Other"],
-      message: "Message (optional)",
+      message: "Message",
       send: "Send",
       sending: "Sending...",
       success: "Thanks — I'll get back to you soon.",
       deliveryFailed: "Your message didn't go through. Please try again, or message Felix directly on WhatsApp.",
       errors: {
         name: "Name is required",
-        contact: "A way to reach you is required",
+        contact: "Enter a valid phone number or email",
         businessType: "Business type is required",
+        message: "Please add a short message",
       },
     },
     footer: {
@@ -185,9 +186,36 @@ const content = {
       servicesTitle: "Services",
       servicesLinks: ["Website Engineering", "WhatsApp Bots", "Lead Generation", "AI Integrations"],
       getInTouchTitle: "Get in Touch",
+      serviceArea: "San Diego · South Bay",
       terms: "Terms & Conditions",
       privacy: "Privacy Policy",
       copyright: `© ${new Date().getFullYear()} Fx Labs. All rights reserved.`,
+    },
+    bentoServicesCta: "Chat on WhatsApp",
+    legal: {
+      terms: {
+        title: "Terms & Conditions",
+        updated: "Last updated: September 2026",
+        body: [
+          "By submitting the contact form or hiring Fx Labs, you agree to these terms.",
+          "Fx Labs designs and builds websites, WhatsApp bots, and related automation for local businesses. Project scope, pricing, and delivery timelines are agreed directly with Felix before work begins.",
+          "One-time website packages include 30 days of post-launch support. Monthly retainer services (AI bots, voice agents) renew month to month and can be cancelled with notice via WhatsApp or email.",
+          "Payments are due as agreed at project kickoff. Domain, hosting, and third-party subscription costs (if any) are billed separately and disclosed up front.",
+          "Fx Labs is not liable for indirect or consequential damages arising from use of the delivered website or bot. Deliverables are provided as-is after acceptance testing.",
+          "Questions about these terms can be sent to the contact below.",
+        ],
+      },
+      privacy: {
+        title: "Privacy Policy",
+        updated: "Last updated: September 2026",
+        body: [
+          "This page explains what information the contact form collects and how it's used.",
+          "When you submit the contact form, we collect your name, the contact method you provide (phone, WhatsApp, or email), your business type, and any message you write.",
+          "That information is emailed directly to Felix to respond to your inquiry. It is not sold, shared with advertisers, or used for any purpose beyond replying to you and, if you become a client, delivering the agreed service.",
+          "We do not use cookies or analytics trackers on this site beyond what's required for the site to function.",
+          "To request deletion of your information, contact Felix by WhatsApp or email using the details in the footer, and it will be removed from our records.",
+        ],
+      },
     },
     language: "Español",
   },
@@ -355,15 +383,16 @@ const content = {
       contact: "Teléfono, WhatsApp o correo",
       businessType: "Tipo de negocio",
       options: ["Restaurante", "Tienda", "Contratista", "Otro"],
-      message: "Mensaje (opcional)",
+      message: "Mensaje",
       send: "Enviar",
       sending: "Enviando...",
       success: "Gracias, te responderé pronto.",
       deliveryFailed: "Tu mensaje no se pudo enviar. Inténtalo de nuevo o escríbele a Felix directo por WhatsApp.",
       errors: {
         name: "El nombre es obligatorio",
-        contact: "Necesitamos una forma de contactarte",
+        contact: "Ingresa un teléfono o correo válido",
         businessType: "El tipo de negocio es obligatorio",
+        message: "Agrega un mensaje breve",
       },
     },
     footer: {
@@ -373,9 +402,36 @@ const content = {
       servicesTitle: "Servicios",
       servicesLinks: ["Ingeniería Web", "Bots de WhatsApp", "Generación de Leads", "Integraciones IA"],
       getInTouchTitle: "Contacto",
+      serviceArea: "San Diego · South Bay",
       terms: "Términos y Condiciones",
       privacy: "Política de Privacidad",
       copyright: `© ${new Date().getFullYear()} Fx Labs. Todos los derechos reservados.`,
+    },
+    bentoServicesCta: "Hablar por WhatsApp",
+    legal: {
+      terms: {
+        title: "Términos y Condiciones",
+        updated: "Última actualización: septiembre de 2026",
+        body: [
+          "Al enviar el formulario de contacto o contratar a Fx Labs, aceptas estos términos.",
+          "Fx Labs diseña y construye sitios web, bots de WhatsApp y automatizaciones relacionadas para negocios locales. El alcance, precio y tiempos de entrega de cada proyecto se acuerdan directamente con Felix antes de comenzar el trabajo.",
+          "Los paquetes de sitio web de pago único incluyen 30 días de soporte post-lanzamiento. Los servicios mensuales (bots de IA, agentes de voz) se renuevan mes a mes y pueden cancelarse avisando por WhatsApp o correo.",
+          "Los pagos se realizan según lo acordado al inicio del proyecto. Costos de dominio, hosting o suscripciones de terceros (si aplican) se facturan por separado y se informan con anticipación.",
+          "Fx Labs no es responsable por daños indirectos o consecuentes derivados del uso del sitio web o bot entregado. Los entregables se proveen tal cual una vez aceptados.",
+          "Para preguntas sobre estos términos, escribe al contacto indicado abajo.",
+        ],
+      },
+      privacy: {
+        title: "Política de Privacidad",
+        updated: "Última actualización: septiembre de 2026",
+        body: [
+          "Esta página explica qué información recoge el formulario de contacto y cómo se usa.",
+          "Al enviar el formulario de contacto recopilamos tu nombre, el medio de contacto que indiques (teléfono, WhatsApp o correo), el tipo de negocio y el mensaje que escribas.",
+          "Esa información se envía directamente por correo a Felix para responder tu consulta. No se vende, no se comparte con anunciantes ni se usa para otro fin que no sea responderte y, si te conviertes en cliente, entregar el servicio acordado.",
+          "No usamos cookies ni rastreadores de analítica en este sitio más allá de lo necesario para su funcionamiento.",
+          "Para solicitar la eliminación de tu información, contacta a Felix por WhatsApp o correo usando los datos del pie de página, y será eliminada de nuestros registros.",
+        ],
+      },
     },
     language: "English",
   },
@@ -390,5 +446,8 @@ export const spanishWelcome = content.en.hero.welcome;
 export const about = { name: "Felix", bio: content.en.about.bio };
 
 export const whatsappHref = "https://wa.me/16197452934";
+export const businessPhone = "+16197452934";
+export const businessEmail = "felix.44802@gmail.com";
+export const siteOrigin = "https://fx-labs-website.vercel.app";
 
 

@@ -32,7 +32,7 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
+          className="text-halo relative z-10 mb-14 text-center"
         >
           <p className="font-mono text-xs font-semibold tracking-[0.25em] text-accent uppercase">
             Start Your Journey
@@ -63,7 +63,7 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
             className="grid gap-8 md:grid-cols-[1fr_280px]"
           >
             {/* Form */}
-            <form action={formAction} className="flex flex-col gap-4">
+            <form action={formAction} noValidate className="flex flex-col gap-4">
               {deliveryFailed && (
                 <div
                   role="alert"
@@ -83,6 +83,8 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
               <div>
                 <input
                   name="name"
+                  required
+                  aria-required="true"
                   placeholder={copy.contact.name}
                   aria-describedby={errors?.name ? "name-error" : undefined}
                   className="w-full rounded-2xl border border-border-subtle bg-[#091216] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
@@ -97,6 +99,8 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
               <div>
                 <input
                   name="contact"
+                  required
+                  aria-required="true"
                   placeholder={copy.contact.contact}
                   aria-describedby={errors?.contact ? "contact-error" : undefined}
                   className="w-full rounded-2xl border border-border-subtle bg-[#091216] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
@@ -137,9 +141,17 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
                 <textarea
                   name="message"
                   rows={4}
+                  required
+                  aria-required="true"
                   placeholder={copy.contact.message}
+                  aria-describedby={errors?.message ? "message-error" : undefined}
                   className="w-full rounded-2xl border border-border-subtle bg-[#091216] px-4 py-3.5 text-sm text-foreground placeholder-foreground-muted/60 focus:border-accent focus:outline-none transition-colors"
                 />
+                {errors?.message && (
+                  <p id="message-error" className="mt-1 text-xs text-amber-400">
+                    {copy.contact.errors.message}
+                  </p>
+                )}
               </div>
 
               <button

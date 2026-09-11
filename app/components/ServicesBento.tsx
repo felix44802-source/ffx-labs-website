@@ -44,10 +44,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
           {/* ============================================================== */}
           {/* 1. HERO CARD: Website Design & Assembly (Spans 2 Columns)     */}
           {/* ============================================================== */}
-          <motion.a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             initial={{ opacity: 0.5, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
@@ -68,12 +65,6 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                     FLAGSHIP SERVICE
                   </span>
                 </div>
-
-                <span className="text-foreground-muted transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent">
-                  <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
               </div>
 
               <h3 className="mt-6 text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
@@ -82,6 +73,16 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-foreground-muted">
                 {website.description}
               </p>
+
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs font-bold text-accent hover:underline"
+              >
+                {copy.bentoServicesCta}
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
             </div>
 
             {/* Visual Demo Widget: Real-time Lighthouse 99 Performance */}
@@ -106,15 +107,12 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </motion.div>
 
           {/* ============================================================== */}
           {/* 2. CUSTOM WHATSAPP BOTS: Animated Chat Simulator Card          */}
           {/* ============================================================== */}
-          <motion.a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             initial={{ opacity: 0.5, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
@@ -140,6 +138,16 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <p className="mt-2 text-xs leading-relaxed text-foreground-muted">
                 {bot.description}
               </p>
+
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-bold text-[#25D366] hover:underline"
+              >
+                {copy.bentoServicesCta}
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
             </div>
 
             {/* Visual Demo: WhatsApp Live Conversation Simulation */}
@@ -158,15 +166,12 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </motion.div>
 
           {/* ============================================================== */}
           {/* 3. TARGETED LEAD GENERATION                                    */}
           {/* ============================================================== */}
-          <motion.a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             initial={{ opacity: 0.5, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
@@ -191,6 +196,16 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <p className="mt-2 text-xs leading-relaxed text-foreground-muted">
                 {leads.description}
               </p>
+
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-accent hover:underline"
+              >
+                {copy.bentoServicesCta}
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
             </div>
 
             {/* Mini Stat Bar */}
@@ -203,15 +218,12 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                 <div className="h-full bg-accent rounded-full" style={{ width: "85%" }} />
               </div>
             </div>
-          </motion.a>
+          </motion.div>
 
           {/* ============================================================== */}
           {/* 4. TECHNOLOGY & AI INNOVATION                                  */}
           {/* ============================================================== */}
-          <motion.a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             initial={{ opacity: 0.5, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
@@ -235,6 +247,16 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <p className="mt-2 text-xs leading-relaxed text-foreground-muted">
                 {tech.description}
               </p>
+
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-accent hover:underline"
+              >
+                {copy.bentoServicesCta}
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
             </div>
 
             {/* Neural Pulse Pill */}
@@ -245,15 +267,12 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                 ~450ms
               </span>
             </div>
-          </motion.a>
+          </motion.div>
 
           {/* ============================================================== */}
           {/* 5. AUTOMATED CRM & SYNC                                        */}
           {/* ============================================================== */}
-          <motion.a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             initial={{ opacity: 0.5, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
@@ -278,6 +297,16 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <p className="mt-2 text-xs leading-relaxed text-foreground-muted">
                 {sync.description}
               </p>
+
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-accent hover:underline"
+              >
+                {copy.bentoServicesCta}
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
             </div>
 
             {/* Sync Flow Chain */}
@@ -288,15 +317,12 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <span className="text-accent">➔</span>
               <span>Calendar</span>
             </div>
-          </motion.a>
+          </motion.div>
 
           {/* ============================================================== */}
           {/* 6. STRATEGIC GROWTH CONSULTING (Full-width Bottom Banner)      */}
           {/* ============================================================== */}
-          <motion.a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             initial={{ opacity: 0.5, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
@@ -327,12 +353,17 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             </div>
 
             <div className="mt-4 sm:mt-0 shrink-0">
-              <span className="btn-dark inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold group-hover:border-accent group-hover:text-accent transition-all">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-dark inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold group-hover:border-accent group-hover:text-accent transition-all"
+              >
                 Talk to Founder
-                <span className="transition-transform group-hover:translate-x-1">➔</span>
-              </span>
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">➔</span>
+              </a>
             </div>
-          </motion.a>
+          </motion.div>
         </div>
       </div>
     </section>
