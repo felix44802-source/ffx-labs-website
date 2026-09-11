@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitContactFormAction } from "@/app/actions/contact";
-import type { ContactFormResult } from "@/app/lib/contact";
+import { HONEYPOT_FIELD, type ContactFormResult } from "@/app/lib/contact";
 import { getContent, type SiteContent, whatsappHref } from "@/app/lib/content";
+import { trackLeadSubmitted } from "@/app/lib/analytics";
 
 type FormState = ContactFormResult | { ok: null };
 
@@ -16,6 +17,7 @@ async function action(_prevState: FormState, formData: FormData) {
     contact: String(formData.get("contact") ?? ""),
     businessType: String(formData.get("businessType") ?? ""),
     message: String(formData.get("message") ?? ""),
+    website: String(formData.get(HONEYPOT_FIELD) ?? ""),
   });
 }
 
@@ -23,6 +25,15 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
   const [state, formAction, pending] = useActionState(action, initialState);
   const errors = state.ok === false && "errors" in state ? state.errors : undefined;
   const deliveryFailed = state.ok === false && "deliveryFailed" in state;
+  const trackedSuccess = useRef(false);
+
+  // Fire the conversion event exactly once per successful lead delivery.
+  useEffect(() => {
+    if (state.ok === true && !trackedSuccess.current) {
+      trackedSuccess.current = true;
+      trackLeadSubmitted();
+    }
+  }, [state]);
 
   return (
     <section id="contact" className="relative py-28 px-6 md:px-12">
@@ -76,6 +87,21 @@ export function ContactForm({ copy = getContent("en") }: { copy?: SiteContent })
           >
             {/* Form */}
             <form action={formAction} noValidate className="flex flex-col gap-4">
+              {/* Honeypot: invisible to humans, irresistible to bots. A filled
+                  value is dropped server-side as spam. */}
+              <div
+                aria-hidden="true"
+                className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden"
+              >
+                <label htmlFor={HONEYPOT_FIELD}>Leave this field empty</label>
+                <input
+                  id={HONEYPOT_FIELD}
+                  name={HONEYPOT_FIELD}
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               {deliveryFailed && (
                 <div
                   role="alert"

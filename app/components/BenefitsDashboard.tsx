@@ -21,9 +21,14 @@ export function BenefitsDashboard({ copy }: { copy: SiteContent }) {
               {/* Header */}
               <div className="flex items-center justify-between border-b border-border-subtle pb-6">
                 <div>
-                  <p className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
-                    {copy.benefits.stats.totalTitle}
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
+                      {copy.benefits.stats.totalTitle}
+                    </p>
+                    <span className="rounded-full border border-border-subtle bg-[#091216] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-foreground-muted">
+                      {copy.illustrative.short}
+                    </span>
+                  </div>
                   <div className="mt-1 flex items-baseline gap-3">
                     <span className="font-mono text-3xl font-extrabold text-foreground">
                       {copy.benefits.stats.totalNumber}
@@ -58,7 +63,7 @@ export function BenefitsDashboard({ copy }: { copy: SiteContent }) {
                     <span className="font-mono font-bold text-foreground">{copy.benefits.stats.inProgressVal}</span>
                   </div>
                   <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-border-subtle">
-                    <div className="h-full rounded-full bg-accent-2" style={{ width: "13%" }} />
+                    <div className="h-full rounded-full bg-accent-2" style={{ width: "5%" }} />
                   </div>
                 </div>
 
@@ -68,7 +73,7 @@ export function BenefitsDashboard({ copy }: { copy: SiteContent }) {
                     <span className="font-mono font-bold text-foreground">{copy.benefits.stats.reportedVal}</span>
                   </div>
                   <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-border-subtle">
-                    <div className="h-full rounded-full bg-accent-2/50" style={{ width: "5%" }} />
+                    <div className="h-full rounded-full bg-accent-2/50" style={{ width: "3%" }} />
                   </div>
                 </div>
               </div>
@@ -93,9 +98,14 @@ export function BenefitsDashboard({ copy }: { copy: SiteContent }) {
               <div className="mt-2 font-mono text-2xl font-black text-foreground">
                 {copy.benefits.stats.activeLeadsCount}
               </div>
-              <p className="mt-0.5 text-[11px] font-semibold text-foreground-muted">
-                {copy.benefits.stats.activeLeadsText}
-              </p>
+              <div className="mt-1 flex items-center gap-2">
+                <p className="text-[11px] font-semibold text-foreground-muted">
+                  {copy.benefits.stats.activeLeadsText}
+                </p>
+                <span className="rounded-full border border-border-subtle bg-[#091216] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-foreground-muted">
+                  {copy.illustrative.short}
+                </span>
+              </div>
             </motion.div>
           </motion.div>
 

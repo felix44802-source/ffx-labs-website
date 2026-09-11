@@ -5,6 +5,11 @@ export type SiteContent = ReturnType<typeof getContent>;
 const content = {
   en: {
     brand: { name: "Fx Labs", tagline: "A digital presence that answers for itself." },
+    illustrative: {
+      short: "Illustrative",
+      rating: "Illustrative rating",
+      metrics: "Illustrative example",
+    },
     nav: {
       home: "Home",
       about: "About",
@@ -15,12 +20,18 @@ const content = {
       cta: "Get Started",
       tryDemo: "Try Demo",
       switchLanguageTitle: "Switch Language",
+      menu: "Menu",
+      close: "Close menu",
     },
     hero: {
       headline: "The Future of Local Business with Latest AI Technology",
       description: "Expert AI tech to elevate your business operations and inquiries. Let's take your revenue and digital presence further.",
       getStarted: "Get Started",
       tryDemo: "Try Demo",
+      getStartedWhatsappText:
+        "Hi Felix! I'm interested in your services. Can you tell me more about what you offer?",
+      tryDemoWhatsappText:
+        "Hi Felix! I'd like to see a demo of your AI website / WhatsApp bot.",
       ratingScore: "5.0",
       ratingText: "from 80+ reviews",
       welcome: "Se habla español · We speak Spanish too",
@@ -103,9 +114,9 @@ const content = {
         finished: "Finished",
         finishedVal: "92%",
         inProgress: "In-Progress",
-        inProgressVal: "13%",
+        inProgressVal: "5%",
         reported: "Reported",
-        reportedVal: "5%",
+        reportedVal: "3%",
         activeLeadsCount: "1951+",
         activeLeadsText: "Increase of 12% this month",
       },
@@ -271,7 +282,7 @@ const content = {
           "This page explains what information the contact form collects and how it's used.",
           "When you submit the contact form, we collect your name, the contact method you provide (phone, WhatsApp, or email), your business type, and any message you write.",
           "That information is emailed directly to Felix to respond to your inquiry. It is not sold, shared with advertisers, or used for any purpose beyond replying to you and, if you become a client, delivering the agreed service.",
-          "We do not use cookies or analytics trackers on this site beyond what's required for the site to function.",
+          "We use cookieless, privacy-friendly analytics (Vercel Web Analytics) to understand how visitors reach and use the site in aggregate. This does not track you across the web, does not use cookies, and collects no personally identifying information. We measure aggregate visits and a few conversion actions (for example, a click on a WhatsApp button or a submitted contact form) to know what is worth improving.",
           "To request deletion of your information, contact Felix by WhatsApp or email using the details in the footer, and it will be removed from our records.",
         ],
       },
@@ -280,6 +291,11 @@ const content = {
   },
   es: {
     brand: { name: "Fx Labs", tagline: "Una presencia digital que responde por sí sola." },
+    illustrative: {
+      short: "Ilustrativo",
+      rating: "Valoración ilustrativa",
+      metrics: "Ejemplo ilustrativo",
+    },
     nav: {
       home: "Inicio",
       about: "Sobre Mí",
@@ -290,12 +306,18 @@ const content = {
       cta: "Comenzar",
       tryDemo: "Ver Demo",
       switchLanguageTitle: "Cambiar Idioma",
+      menu: "Menú",
+      close: "Cerrar menú",
     },
     hero: {
       headline: "El Futuro de los Negocios Locales con Tecnología IA",
       description: "Tecnología de IA de vanguardia para elevar las operaciones y consultas de tu negocio. Llevemos tus ingresos y presencia digital al siguiente nivel.",
       getStarted: "Comenzar",
       tryDemo: "Ver Demo",
+      getStartedWhatsappText:
+        "¡Hola Felix! Me interesan tus servicios. ¿Me cuentas más sobre lo que ofreces?",
+      tryDemoWhatsappText:
+        "¡Hola Felix! Me gustaría ver una demo de tu sitio web / bot de WhatsApp con IA.",
       ratingScore: "5.0",
       ratingText: "de más de 80 reseñas",
       welcome: "We speak English too · También hablamos español",
@@ -378,9 +400,9 @@ const content = {
         finished: "Completados",
         finishedVal: "92%",
         inProgress: "En Proceso",
-        inProgressVal: "13%",
+        inProgressVal: "5%",
         reported: "Reportados",
-        reportedVal: "5%",
+        reportedVal: "3%",
         activeLeadsCount: "1951+",
         activeLeadsText: "Aumento del 12% este mes",
       },
@@ -546,7 +568,7 @@ const content = {
           "Esta página explica qué información recoge el formulario de contacto y cómo se usa.",
           "Al enviar el formulario de contacto recopilamos tu nombre, el medio de contacto que indiques (teléfono, WhatsApp o correo), el tipo de negocio y el mensaje que escribas.",
           "Esa información se envía directamente por correo a Felix para responder tu consulta. No se vende, no se comparte con anunciantes ni se usa para otro fin que no sea responderte y, si te conviertes en cliente, entregar el servicio acordado.",
-          "No usamos cookies ni rastreadores de analítica en este sitio más allá de lo necesario para su funcionamiento.",
+          "Usamos analítica sin cookies y respetuosa con la privacidad (Vercel Web Analytics) para entender en conjunto cómo los visitantes llegan y usan el sitio. No te rastrea por la web, no usa cookies y no recopila información que te identifique personalmente. Medimos visitas agregadas y algunas acciones de conversión (por ejemplo, un clic en un botón de WhatsApp o el envío del formulario de contacto) para saber qué vale la pena mejorar.",
           "Para solicitar la eliminación de tu información, contacta a Felix por WhatsApp o correo usando los datos del pie de página, y será eliminada de nuestros registros.",
         ],
       },

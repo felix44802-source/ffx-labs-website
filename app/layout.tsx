@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { GlobalBackground } from "./components/GlobalBackground";
 import { siteOrigin } from "./lib/content";
@@ -36,6 +37,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <GlobalBackground />
         {children}
+        <Analytics />
       </body>
     </html>
   );

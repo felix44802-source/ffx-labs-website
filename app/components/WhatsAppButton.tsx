@@ -4,7 +4,9 @@ export function WhatsAppButton({ label = "WhatsApp", className = "" }: { label?:
   return (
     <a
       href={whatsappHref}
-      className={`btn-gradient rounded-full px-5 py-3 font-semibold text-accent-foreground ${className}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`btn-mint rounded-full px-5 py-3 font-semibold text-accent-foreground ${className}`}
     >
       {label}
     </a>

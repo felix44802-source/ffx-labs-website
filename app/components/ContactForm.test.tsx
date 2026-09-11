@@ -37,6 +37,14 @@ describe("ContactForm", () => {
     recordLead.mockResolvedValue({ id: "lead_1" });
   });
 
+  it("renders a hidden honeypot field so bots get caught", () => {
+    render(<ContactForm />);
+
+    const honeypot = screen.getByLabelText("Leave this field empty");
+    expect(honeypot).toBeInTheDocument();
+    expect(honeypot).toHaveAttribute("name", "website");
+  });
+
   it("shows a validation error when submitted without a name", async () => {
     const user = userEvent.setup();
     render(<ContactForm />);

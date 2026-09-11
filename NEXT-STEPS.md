@@ -54,22 +54,33 @@ Roughly in order of what it costs you to leave undone.
   pass. `RESEND_API_KEY`, `LEAD_EMAIL_FROM` and `LEAD_EMAIL_TO` are set in the
   Vercel project. Email was chosen over a database on purpose: the inbox is a
   record Felix actually reads.
-- **The contact form is a public endpoint with no rate limit.** A Server Action
-  compiles to a POST anyone can call. That was harmless when it only wrote a
-  log line; now each hit costs a real email send. Wants BotID or a rate limit
-  before the site sees real traffic.
-- **"Try Demo" is a dead CTA** — it links to `#services`. The Telegram bot is
-  live and would be a real demo to point it at.
-- **Hero metrics are fabricated and deliberately left in place** (decided
-  2026-08-22): "100+ clients", "1951+ inquiries handled", "5.0 from 80+
-  reviews", "6+ years". `CONTEXT.md` says no Client exists yet and that
-  fabricated results must be visibly labeled as Illustrative. These are not
-  labeled. Revisit before the site gets real traffic.
-- **Analytics** — Vercel Analytics + WhatsApp/form click tracking, agreed
-  during grilling, not implemented.
-- **Privacy page** — agreed during grilling, not created.
-- **SEO** — only a basic `<title>`/description in `app/layout.tsx`; no sitemap,
-  OG tags, or per-locale metadata.
+- **Contact-form abuse protection is in place** (2026-08-22, after this snapshot).
+  A honeypot field (`app/lib/contact.ts`), an in-memory sliding-window rate
+  limit per IP (`app/lib/rateLimit.ts`, 5/hour), and origin/method checks back
+  the Server Action. **Still in-memory only** — lifts to Vercel KV/Upstash when
+  the site sees real or distributed traffic, because in-memory counters reset
+  on every cold start and do not stop multi-IP abuse.
+- **Hero CTAs open WhatsApp with a pre-filled message** (`Hero.tsx`), "Try Demo"
+  no longer dead-links to `#services`. Note the Telegram bot `@fxxlabs_bot`
+  stays allowlist-only (Felix's ID), so a real public demo is still pending.
+- **Fabricated metrics are now labeled "Illustrative"** in the Hero rating, the
+  stats strip, and the Benefits dashboard; the Benefits percentages were also
+  fixed to sum to 100% (was 110%). `ServicesBento` demo widgets (Lighthouse 99,
+  "+45% CONV", "~450ms") remain unlabeled as decorative mock data — lower
+  priority, revisit if the site attracts scrutiny.
+- **Mobile nav menu** added to `Navbar.tsx` (hamburger + panel on small screens).
+- **Vercel Analytics + conversion tracking** wired: `<Analytics />` in
+  `app/layout.tsx`, `app/lib/analytics.ts` tracks WhatsApp clicks and lead
+  submissions. **Action still required in the Vercel dashboard:** enable Web
+  Analytics for the `fx-labs-website` project (and confirm the events show up).
+  The Privacy Policy was updated to describe this cookieless, aggregate-only
+  analytics instead of claiming "no trackers".
+- **Footer has a broken "Customers" link** — `footer.companyLinks` includes
+  "Customers" but no such page exists in the sitemap/router. Remove it or build
+  the page.
+- **SEO still partial** — there is a sitemap (`app/sitemap.ts`), `robots.ts`,
+  per-locale metadata, OG and Twitter tags, and JSON-LD. Still missing:
+  per-page OG images for subpages, and a proper `usefxlabs.com` domain.
 - **Illustrative Example visuals** — no mockup screenshots or video yet.
 - **Domain** — `usefxlabs.com` still not purchased. This also blocks the
   **WhatsApp Business integration**, which is stuck on Meta's business/domain

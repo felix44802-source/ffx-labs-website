@@ -177,4 +177,41 @@ describe("submitContactForm", () => {
     expect(result).toEqual({ ok: false, deliveryFailed: true });
     expect(recordLead).toHaveBeenCalled();
   });
+
+  it("silently drops a honeypot-filled submission without recording a lead", async () => {
+    const recordLead = vi.fn(async () => ({ id: "lead_1" }));
+
+    const result = await submitContactForm(
+      {
+        name: "Spam Bot",
+        contact: "bot@spam.example",
+        businessType: "Restaurant",
+        message: "Buy cheap SEO",
+        website: "http://spam.example",
+      },
+      recordLead,
+    );
+
+    // Indistinguishable from success so the bot learns nothing.
+    expect(result).toEqual({ ok: true, leadId: "honeypot" });
+    expect(recordLead).not.toHaveBeenCalled();
+  });
+
+  it("ignores a whitespace-only honeypot value", async () => {
+    const recordLead = vi.fn(async () => ({ id: "lead_1" }));
+
+    const result = await submitContactForm(
+      {
+        name: "Jordan Lee",
+        contact: "jordan@example.com",
+        businessType: "Restaurant",
+        message: "Looking to get a website built.",
+        website: "   ",
+      },
+      recordLead,
+    );
+
+    expect(result).toEqual({ ok: true, leadId: "lead_1" });
+    expect(recordLead).toHaveBeenCalled();
+  });
 });

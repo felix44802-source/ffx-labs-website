@@ -27,8 +27,13 @@ export function StatsStrip({ copy }: { copy: SiteContent }) {
 
         {/* Card 2: Clients */}
         <div className="rounded-2xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] backdrop-blur-lg p-6 flex flex-col justify-between">
-          <div className="font-mono text-3xl font-extrabold text-foreground">
-            {copy.hero.bento.clientsCount}
+          <div className="flex items-center justify-between">
+            <div className="font-mono text-3xl font-extrabold text-foreground">
+              {copy.hero.bento.clientsCount}
+            </div>
+            <span className="rounded-full border border-border-subtle bg-[#091216] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-foreground-muted">
+              {copy.illustrative.short}
+            </span>
           </div>
           <p className="mt-4 text-xs font-medium text-foreground-muted leading-snug">
             {copy.hero.bento.clientsLabel}
@@ -46,8 +51,13 @@ export function StatsStrip({ copy }: { copy: SiteContent }) {
             </span>
           </div>
           <div className="mt-4">
-            <div className="font-mono text-3xl font-extrabold text-foreground">
-              {copy.hero.bento.projectsCount}
+            <div className="flex items-center justify-between">
+              <div className="font-mono text-3xl font-extrabold text-foreground">
+                {copy.hero.bento.projectsCount}
+              </div>
+              <span className="rounded-full border border-border-subtle bg-[#091216] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-foreground-muted">
+                {copy.illustrative.short}
+              </span>
             </div>
             <p className="mt-1 text-xs font-semibold text-foreground-muted">
               {copy.hero.bento.projectsLabel}
@@ -57,8 +67,13 @@ export function StatsStrip({ copy }: { copy: SiteContent }) {
 
         {/* Card 4: Years Experience */}
         <div className="rounded-2xl border border-[rgba(34,211,238,0.12)] bg-[rgba(10,15,18,0.6)] backdrop-blur-lg p-6 flex flex-col justify-between">
-          <div className="font-mono text-3xl font-extrabold text-foreground">
-            {copy.hero.bento.yearsCount}
+          <div className="flex items-center justify-between">
+            <div className="font-mono text-3xl font-extrabold text-foreground">
+              {copy.hero.bento.yearsCount}
+            </div>
+            <span className="rounded-full border border-border-subtle bg-[#091216] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-foreground-muted">
+              {copy.illustrative.short}
+            </span>
           </div>
           <p className="mt-4 text-xs font-semibold text-foreground-muted leading-snug">
             {copy.hero.bento.yearsLabel}

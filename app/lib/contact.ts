@@ -3,7 +3,15 @@ export interface ContactFormInput {
   contact: string;
   businessType: string;
   message: string;
+  /**
+   * Honeypot field hidden from humans. Bots that fill every field will set
+   * this; genuine visitors never will. Non-empty === automated spam.
+   */
+  website?: string;
 }
+
+/** Name of the invisible honeypot field. Shared with the form. */
+export const HONEYPOT_FIELD = "website";
 
 export interface Lead {
   name: string;
@@ -37,6 +45,12 @@ export async function submitContactForm(
   input: ContactFormInput,
   recordLead: RecordLead,
 ): Promise<ContactFormResult> {
+  // Honeypot first: a filled hidden field is automated spam. Pretend success
+  // so the bot learns nothing, and never spend an email on it.
+  if (input.website?.trim()) {
+    return { ok: true, leadId: "honeypot" };
+  }
+
   const errors: ContactFormErrors = {};
   if (!input.name.trim()) {
     errors.name = "Name is required";

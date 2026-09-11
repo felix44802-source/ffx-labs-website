@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import type { SiteContent } from "@/app/lib/content";
 import { whatsappHref } from "@/app/lib/content";
+import { trackWhatsAppClick } from "@/app/lib/analytics";
 
 export function Hero({ copy }: { copy: SiteContent }) {
+  const getStartedHref = `${whatsappHref}?text=${encodeURIComponent(copy.hero.getStartedWhatsappText)}`;
+  const tryDemoHref = `${whatsappHref}?text=${encodeURIComponent(copy.hero.tryDemoWhatsappText)}`;
+
   return (
     <section className="relative z-10 flex flex-col items-center justify-center overflow-hidden px-6 pt-20 pb-20 text-center md:pt-28 md:pb-28">
       <div className="text-halo relative z-10 mx-auto flex max-w-5xl flex-col items-center">
@@ -38,15 +41,19 @@ export function Hero({ copy }: { copy: SiteContent }) {
         >
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href={whatsappHref}
+              href={getStartedHref}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("hero_get_started")}
               className="btn-mint rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-wider"
             >
               {copy.hero.getStarted}
             </a>
             <a
-              href="#services"
+              href={tryDemoHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("hero_try_demo")}
               className="btn-dark rounded-full px-8 py-3.5 text-sm font-semibold tracking-wide"
             >
               {copy.hero.tryDemo}
@@ -54,12 +61,15 @@ export function Hero({ copy }: { copy: SiteContent }) {
           </div>
 
           {/* Star Rating Badge */}
-          <div className="flex items-center gap-2 font-mono text-xs text-foreground-muted">
+          <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-foreground-muted">
             <div className="flex text-accent-2">
               {"★".repeat(5)}
             </div>
             <span className="font-bold text-foreground">{copy.hero.ratingScore}</span>
             <span>{copy.hero.ratingText}</span>
+            <span className="rounded-full border border-border-subtle bg-[#091216] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-foreground-muted">
+              {copy.illustrative.rating}
+            </span>
           </div>
 
           {/* Bilingual Support Pill */}
