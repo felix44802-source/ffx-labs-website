@@ -58,7 +58,7 @@ export function Footer({ copy, locale }: { copy: SiteContent; locale: Locale }) 
             </p>
             <p className="mt-4 text-xs">
               <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-                Direct WhatsApp
+                {copy.footer.directWhatsapp}
               </a>
             </p>
             <p className="mt-2 text-xs">
@@ -87,7 +87,7 @@ export function Footer({ copy, locale }: { copy: SiteContent; locale: Locale }) 
               <a
                 href={`tel:${businessPhone}`}
                 className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#091216] border border-border-subtle hover:border-accent text-accent transition-colors"
-                title="Call"
+                title={copy.footer.callTitle}
               >
                 <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
                   <path d="M6.5 3h3l1.5 4.5-2.25 1.5a11 11 0 0 0 5.25 5.25l1.5-2.25L20 13.5v3a2 2 0 0 1-2.18 2A17 17 0 0 1 4.5 5.18 2 2 0 0 1 6.5 3z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
@@ -96,7 +96,7 @@ export function Footer({ copy, locale }: { copy: SiteContent; locale: Locale }) 
               <a
                 href={`mailto:${businessEmail}`}
                 className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#091216] border border-border-subtle hover:border-accent text-accent transition-colors"
-                title="Email"
+                title={copy.footer.emailTitle}
               >
                 <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
                   <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.6" />

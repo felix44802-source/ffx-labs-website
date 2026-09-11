@@ -9,8 +9,6 @@ import { whatsappHref } from "@/app/lib/content";
 interface IntegrationItem {
   id: string;
   name: string;
-  role: string;
-  badge: string;
   color: string;
   glowColor: string;
   bgTint: string;
@@ -22,8 +20,6 @@ const integrations: IntegrationItem[] = [
   {
     id: "whatsapp",
     name: "WhatsApp",
-    role: "24/7 AI Sales & Lead Capture",
-    badge: "Official API",
     color: "#25D366",
     glowColor: "rgba(37, 211, 102, 0.6)",
     bgTint: "rgba(37, 211, 102, 0.12)",
@@ -37,8 +33,6 @@ const integrations: IntegrationItem[] = [
   {
     id: "openai",
     name: "OpenAI GPT-4o",
-    role: "Intelligent Reasoning Core",
-    badge: "LLM Brain",
     color: "#00F0FF",
     glowColor: "rgba(0, 240, 255, 0.65)",
     bgTint: "rgba(0, 240, 255, 0.14)",
@@ -55,8 +49,6 @@ const integrations: IntegrationItem[] = [
   {
     id: "stripe",
     name: "Stripe Payments",
-    role: "Instant Checkout & Subscriptions",
-    badge: "Auto-Invoicing",
     color: "#635BFF",
     glowColor: "rgba(99, 91, 255, 0.6)",
     bgTint: "rgba(99, 91, 255, 0.12)",
@@ -70,8 +62,6 @@ const integrations: IntegrationItem[] = [
   {
     id: "calendar",
     name: "Google Calendar",
-    role: "Automatic Meeting Booking",
-    badge: "Auto-Sync",
     color: "#4285F4",
     glowColor: "rgba(66, 133, 244, 0.65)",
     bgTint: "rgba(66, 133, 244, 0.14)",
@@ -106,8 +96,6 @@ const integrations: IntegrationItem[] = [
   {
     id: "meta",
     name: "Meta & Facebook Ads",
-    role: "Lead Generation Pipeline",
-    badge: "Traffic Flow",
     color: "#1877F2",
     glowColor: "rgba(24, 119, 242, 0.6)",
     bgTint: "rgba(24, 119, 242, 0.12)",
@@ -121,8 +109,6 @@ const integrations: IntegrationItem[] = [
   {
     id: "crm",
     name: "CRM & HubSpot",
-    role: "Centralized Client Database",
-    badge: "Instant Sync",
     color: "#FF7A59",
     glowColor: "rgba(255, 122, 89, 0.6)",
     bgTint: "rgba(255, 122, 89, 0.12)",
@@ -142,6 +128,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
   const [activeId, setActiveId] = useState<string>("whatsapp");
 
   const activeItem = integrations.find((item) => item.id === activeId) ?? integrations[0];
+  const activeMeta = copy.integrations.items[activeItem.id as keyof typeof copy.integrations.items];
 
   // Center coordinates in viewBox (400 x 400)
   const cx = 200;
@@ -165,7 +152,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-[#091216] px-3.5 py-1.5 font-mono text-xs font-bold text-accent">
               <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-              NEURAL DATA FLOW
+              {copy.integrations.badge}
             </div>
 
             <h2 className="mt-4 text-3xl font-extrabold leading-tight text-foreground md:text-5xl">
@@ -201,14 +188,14 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
                         className="rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold"
                         style={{ backgroundColor: activeItem.bgTint, color: activeItem.color }}
                       >
-                        {activeItem.badge}
+                        {activeMeta.badge}
                       </span>
                     </div>
-                    <p className="text-xs text-foreground-muted mt-0.5 font-medium">{activeItem.role}</p>
+                    <p className="text-xs text-foreground-muted mt-0.5 font-medium">{activeMeta.role}</p>
                   </div>
                 </div>
                 <span className="font-mono text-xs font-semibold" style={{ color: activeItem.color }}>
-                  ● Active
+                  ● {copy.integrations.activeLabel}
                 </span>
               </div>
             </div>
@@ -385,7 +372,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
 
             {/* Micro Helper Note */}
             <p className="mt-4 text-center font-mono text-[11px] text-foreground-muted">
-              Pasa el cursor sobre cada integración para ver el flujo de datos
+              {copy.integrations.hoverHint}
             </p>
           </motion.div>
         </div>

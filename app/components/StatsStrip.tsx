@@ -21,7 +21,7 @@ export function StatsStrip({ copy }: { copy: SiteContent }) {
             </svg>
           </div>
           <p className="font-mono text-xs text-accent-2 font-semibold uppercase tracking-wider">
-            AI Powered Core
+            {copy.statsStrip.aiPoweredCore}
           </p>
         </div>
 

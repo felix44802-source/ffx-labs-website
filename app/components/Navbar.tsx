@@ -44,7 +44,7 @@ export function Navbar({ copy, locale }: { copy: SiteContent; locale: Locale }) 
           <a
             href={`/${otherLocale}`}
             className="rounded-lg border border-border-subtle bg-card-bg px-3 py-1.5 text-xs font-semibold text-foreground-muted transition-colors hover:border-accent hover:text-foreground"
-            title="Switch Language"
+            title={copy.nav.switchLanguageTitle}
           >
             {copy.language}
           </a>

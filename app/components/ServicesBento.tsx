@@ -17,7 +17,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
         <div className="mb-16 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-[#091216] px-3.5 py-1.5 font-mono text-xs font-bold text-accent">
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-            CORE CAPABILITIES
+            {copy.servicesBento.badge}
           </div>
           <motion.h2
             initial={{ opacity: 0.5, y: 20 }}
@@ -62,7 +62,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                     </svg>
                   </div>
                   <span className="rounded-full bg-accent/15 border border-accent/30 px-3 py-1 font-mono text-[11px] font-bold text-accent-2">
-                    FLAGSHIP SERVICE
+                    {copy.servicesBento.flagshipBadge}
                   </span>
                 </div>
               </div>
@@ -94,8 +94,8 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                     99
                   </div>
                   <div>
-                    <p className="font-mono text-xs font-bold text-foreground">Google Lighthouse Score</p>
-                    <p className="font-mono text-[11px] text-accent">⚡ Sub-second load time (&lt;0.4s) • Zero AI Slop</p>
+                    <p className="font-mono text-xs font-bold text-foreground">{copy.servicesBento.lighthouseScore}</p>
+                    <p className="font-mono text-[11px] text-accent">{copy.servicesBento.subSecondLoad}</p>
                   </div>
                 </div>
 
@@ -128,7 +128,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                   </svg>
                 </div>
                 <span className="rounded-full bg-[#25D366]/15 border border-[#25D366]/30 px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#25D366]">
-                  24/7 ACTIVE
+                  {copy.servicesBento.activeBadge}
                 </span>
               </div>
 
@@ -154,14 +154,14 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             <div className="mt-6 space-y-2.5 rounded-2xl border border-border-subtle bg-[#05090b] p-3.5 text-xs font-sans">
               {/* Customer Bubble */}
               <div className="rounded-xl rounded-tl-none bg-[#0e2730] p-2.5 text-foreground-muted">
-                <p className="text-[11px] leading-tight">Hey! Are there any appointments available today?</p>
+                <p className="text-[11px] leading-tight">{copy.servicesBento.chatCustomerMsg}</p>
                 <span className="mt-1 block text-right text-[9px] text-foreground-muted/60">10:42 AM</span>
               </div>
               {/* AI Bot Instant Reply */}
               <div className="rounded-xl rounded-tr-none border border-[#25D366]/30 bg-[#072418] p-2.5 text-foreground">
-                <p className="text-[11px] leading-tight font-medium">Hi! Yes, we have 4:00 PM open. Booked & confirmed ✅</p>
+                <p className="text-[11px] leading-tight font-medium">{copy.servicesBento.chatBotReply}</p>
                 <div className="mt-1 flex items-center justify-between text-[9px] text-[#25D366]">
-                  <span className="font-mono">AI Auto-Book</span>
+                  <span className="font-mono">{copy.servicesBento.autoBookLabel}</span>
                   <span>✓✓ 10:42 AM</span>
                 </div>
               </div>
@@ -187,7 +187,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                     <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" stroke="currentColor" strokeWidth="1.8" />
                   </svg>
                 </div>
-                <span className="font-mono text-[10px] font-bold text-accent-2">↗ +45% CONV</span>
+                <span className="font-mono text-[10px] font-bold text-accent-2">{copy.servicesBento.convBadge}</span>
               </div>
 
               <h3 className="mt-6 text-lg font-bold text-foreground group-hover:text-accent transition-colors">
@@ -211,8 +211,8 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             {/* Mini Stat Bar */}
             <div className="mt-6 rounded-xl border border-border-subtle bg-[#05090b] p-3">
               <div className="flex justify-between text-[10px] font-mono text-foreground-muted">
-                <span>Inbound Flow</span>
-                <span className="text-accent font-bold">100% Pre-qualified</span>
+                <span>{copy.servicesBento.inboundFlowLabel}</span>
+                <span className="text-accent font-bold">{copy.servicesBento.prequalifiedLabel}</span>
               </div>
               <div className="mt-1.5 h-1.5 w-full rounded-full bg-border-subtle overflow-hidden">
                 <div className="h-full bg-accent rounded-full" style={{ width: "85%" }} />
@@ -238,7 +238,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.8" />
                   </svg>
                 </div>
-                <span className="font-mono text-[10px] font-bold text-[#00F0FF]">GPT-4o ENGINE</span>
+                <span className="font-mono text-[10px] font-bold text-[#00F0FF]">{copy.servicesBento.engineBadge}</span>
               </div>
 
               <h3 className="mt-6 text-lg font-bold text-foreground group-hover:text-accent transition-colors">
@@ -261,7 +261,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
 
             {/* Neural Pulse Pill */}
             <div className="mt-6 flex items-center justify-between rounded-xl border border-border-subtle bg-[#05090b] px-3.5 py-2.5 font-mono text-[11px]">
-              <span className="text-foreground-muted">Model Latency</span>
+              <span className="text-foreground-muted">{copy.servicesBento.modelLatencyLabel}</span>
               <span className="font-bold text-[#00F0FF] flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#00F0FF] animate-ping" />
                 ~450ms
@@ -288,7 +288,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                     <path d="M3 10h18M8 15h8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                   </svg>
                 </div>
-                <span className="font-mono text-[10px] font-bold text-[#FF7A59]">AUTO PIPELINE</span>
+                <span className="font-mono text-[10px] font-bold text-[#FF7A59]">{copy.servicesBento.autoPipelineBadge}</span>
               </div>
 
               <h3 className="mt-6 text-lg font-bold text-foreground group-hover:text-accent transition-colors">
@@ -311,11 +311,11 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
 
             {/* Sync Flow Chain */}
             <div className="mt-6 flex items-center justify-between rounded-xl border border-border-subtle bg-[#05090b] px-3 py-2 font-mono text-[10px] text-foreground-muted">
-              <span>WA Lead</span>
+              <span>{copy.servicesBento.waLeadLabel}</span>
               <span className="text-accent">➔</span>
               <span>CRM</span>
               <span className="text-accent">➔</span>
-              <span>Calendar</span>
+              <span>{copy.servicesBento.calendarLabel}</span>
             </div>
           </motion.div>
 
@@ -343,7 +343,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                     {consulting.title}
                   </h3>
                   <span className="rounded-full bg-accent/15 border border-accent/30 px-2.5 py-0.5 font-mono text-[10px] font-bold text-accent-2">
-                    1-ON-1 DIRECT
+                    {copy.servicesBento.oneOnOneBadge}
                   </span>
                 </div>
                 <p className="mt-1 text-xs leading-relaxed text-foreground-muted max-w-2xl">
@@ -359,7 +359,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                 rel="noopener noreferrer"
                 className="btn-dark inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold group-hover:border-accent group-hover:text-accent transition-all"
               >
-                Talk to Founder
+                {copy.servicesBento.talkToFounder}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">➔</span>
               </a>
             </div>

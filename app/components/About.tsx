@@ -41,7 +41,7 @@ export function About({ copy }: { copy: SiteContent }) {
             className="text-halo relative z-10"
           >
             <p className="font-mono text-xs font-semibold tracking-[0.25em] text-accent uppercase">
-              Behind the Systems
+              {copy.about.eyebrow}
             </p>
             <h2 className="mt-3 text-3xl font-extrabold text-foreground md:text-4xl">
               {copy.about.heading}
@@ -52,8 +52,8 @@ export function About({ copy }: { copy: SiteContent }) {
 
             <div className="mt-8 flex items-center gap-6 border-t border-border-subtle pt-6">
               <div>
-                <p className="font-mono text-xs font-bold text-foreground uppercase tracking-wider">Direct Access</p>
-                <p className="text-xs text-foreground-muted">Work directly with the builder, zero account manager middleman.</p>
+                <p className="font-mono text-xs font-bold text-foreground uppercase tracking-wider">{copy.about.directAccessLabel}</p>
+                <p className="text-xs text-foreground-muted">{copy.about.directAccessBody}</p>
               </div>
             </div>
           </motion.div>

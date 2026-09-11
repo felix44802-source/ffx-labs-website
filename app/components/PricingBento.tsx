@@ -21,7 +21,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
     .join(", ");
 
   const whatsappMessage = encodeURIComponent(
-    `Hello Felix! I'm on your website and would like a custom package quote for my business. I'm interested in: ${selectedNames || "a custom package"}.`
+    `${copy.pricing.customWhatsappGreetingPrefix}${selectedNames || copy.pricing.defaultPackageLabel}${copy.pricing.customWhatsappGreetingSuffix}`
   );
   const customWhatsAppHref = `https://wa.me/16197452934?text=${whatsappMessage}`;
 
@@ -35,7 +35,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
         <div className="mb-16 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-[#091216] px-3.5 py-1.5 font-mono text-xs font-bold text-accent">
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-            TRANSPARENT VALUE
+            {copy.pricing.badge}
           </div>
           <motion.h2
             initial={{ opacity: 0.5, y: 20 }}
@@ -72,7 +72,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
                 <h3 className="text-2xl font-bold text-foreground">
                   {copy.pricing.starter.name}
                 </h3>
-                <span className="font-mono text-xs text-foreground-muted">Standalone</span>
+                <span className="font-mono text-xs text-foreground-muted">{copy.pricing.standaloneLabel}</span>
               </div>
               <p className="mt-2 text-xs text-foreground-muted leading-relaxed">
                 {copy.pricing.starter.desc}
@@ -88,7 +88,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
               </div>
 
               <a
-                href="https://wa.me/16197452934?text=Hi%20Felix!%20I'm%20interested%20in%20the%20Standalone%20Custom%20Website%20($500)."
+                href={`https://wa.me/16197452934?text=${encodeURIComponent(copy.pricing.starterWhatsappText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-dark mt-6 block w-full rounded-full py-3.5 text-center text-xs font-semibold uppercase tracking-wider"
@@ -97,7 +97,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
               </a>
 
               <div className="mt-8 border-t border-border-subtle pt-6">
-                <p className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">What&apos;s Included</p>
+                <p className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">{copy.pricing.includedLabel}</p>
                 <ul className="mt-4 space-y-3">
                   {copy.pricing.starter.features.map((feat, i) => (
                     <li key={i} className="flex items-center gap-3 text-xs text-foreground-muted">
@@ -143,7 +143,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
               </div>
 
               <a
-                href="https://wa.me/16197452934?text=Hi%20Felix!%20I'm%20interested%20in%20the%20AI%20Growth%20Partner%20package%20with%20the%20free%20website%20setup."
+                href={`https://wa.me/16197452934?text=${encodeURIComponent(copy.pricing.partnerWhatsappText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-mint mt-6 block w-full rounded-full py-3.5 text-center text-xs font-bold uppercase tracking-wider shadow-lg"
@@ -152,7 +152,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
               </a>
 
               <div className="mt-8 border-t border-accent/20 pt-6">
-                <p className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">Partner Benefits</p>
+                <p className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">{copy.pricing.partnerBenefitsLabel}</p>
                 <ul className="mt-4 space-y-3">
                   {copy.pricing.partner.features.map((feat, i) => (
                     <li key={i} className="flex items-center gap-3 text-xs text-foreground">
@@ -178,7 +178,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
         >
           <div className="text-center max-w-2xl mx-auto">
             <span className="inline-block rounded-full bg-accent/15 border border-accent/30 px-3 py-1 font-mono text-[10px] font-bold text-accent-2 uppercase tracking-wider">
-              INTERACTIVE CONFIGURATOR
+              {copy.pricing.configuratorBadge}
             </span>
             <h3 className="mt-3 text-2xl font-extrabold text-foreground sm:text-3xl">
               {copy.pricing.configurator.title}
@@ -227,7 +227,7 @@ export function PricingBento({ copy }: { copy: SiteContent }) {
           {/* Live Action Bar */}
           <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border-subtle pt-6 sm:flex-row">
             <div className="font-mono text-xs text-foreground-muted text-center sm:text-left">
-              <span className="text-foreground font-bold">{selectedModules.length} modules</span> selected in your package
+              <span className="text-foreground font-bold">{selectedModules.length} modules</span> {copy.pricing.modulesSelectedSuffix}
             </div>
 
             <a

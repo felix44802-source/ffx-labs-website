@@ -87,7 +87,7 @@ export function BenefitsDashboard({ copy }: { copy: SiteContent }) {
                   ✓
                 </span>
                 <span className="font-mono text-xs font-bold text-accent-2">
-                  Total Inquiries ↗ 8%
+                  {copy.benefits.totalInquiriesLabel}
                 </span>
               </div>
               <div className="mt-2 font-mono text-2xl font-black text-foreground">

@@ -19,14 +19,17 @@ export function proxy(request: NextRequest) {
     return response;
   }
 
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", pathname);
+
   const locale = pathname.split("/")[1];
   if (locale && isLocale(locale) && !savedLocale) {
-    const response = NextResponse.next();
+    const response = NextResponse.next({ request: { headers: requestHeaders } });
     response.cookies.set(localeCookie, locale, { maxAge: 31536000, path: "/" });
     return response;
   }
 
-  return NextResponse.next();
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export const config = {
