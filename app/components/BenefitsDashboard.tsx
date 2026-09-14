@@ -3,113 +3,66 @@
 import { motion } from "motion/react";
 import type { SiteContent } from "@/app/lib/content";
 
+const BENEFIT_ICONS = [
+  // Replies in seconds (chat bubble + lightning)
+  [
+    "M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z",
+    "M13 3l-3 5h2.5l-1 4 3-5h-2.5l1-4z",
+  ],
+  // Appointments book themselves (calendar + check)
+  [
+    "M4 7h16M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z",
+    "M8 3v3M16 3v3M9 13l2 2 4-4",
+  ],
+  // Less busywork, more growth (chart up)
+  [
+    "M4 20h16",
+    "M5 16l4-4 3 3 6-7",
+  ],
+];
+
 export function BenefitsDashboard({ copy }: { copy: SiteContent }) {
   return (
     <section id="benefits" className="relative py-28 px-6 text-foreground md:px-12">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-16 lg:grid-cols-[480px_1fr] lg:items-center">
-          {/* Left: Floating Interactive Dashboard Widget Card */}
+        <div className="grid gap-16 lg:grid-cols-[460px_1fr] lg:items-center">
+          {/* Left: 3 concrete benefit cards */}
           <motion.div
             initial={{ opacity: 0.5, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative mx-auto w-full max-w-md"
+            className="relative mx-auto w-full max-w-md space-y-5"
           >
-            {/* Main Widget Card */}
-            <div className="rounded-3xl border border-card-border bg-card-bg p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]">
-              {/* Header */}
-              <div className="flex items-center justify-between border-b border-border-subtle pb-6">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <p className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
-                      {copy.benefits.stats.totalTitle}
-                    </p>
-                    <span className="rounded-full border border-border-subtle bg-[#091216] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-foreground-muted">
-                      {copy.illustrative.short}
-                    </span>
-                  </div>
-                  <div className="mt-1 flex items-baseline gap-3">
-                    <span className="font-mono text-3xl font-extrabold text-foreground">
-                      {copy.benefits.stats.totalNumber}
-                    </span>
-                    <span className="rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-xs font-bold text-accent-2">
-                      ↗ {copy.benefits.stats.growth}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex gap-1">
-                  <span className="h-2 w-2 rounded-full bg-accent" />
-                  <span className="h-2 w-2 rounded-full bg-accent-2" />
-                  <span className="h-2 w-2 rounded-full bg-accent-2/50" />
-                </div>
-              </div>
-
-              {/* Progress Bars */}
-              <div className="mt-6 space-y-4">
-                <div>
-                  <div className="flex justify-between text-xs font-semibold text-foreground-muted">
-                    <span>{copy.benefits.stats.finished}</span>
-                    <span className="font-mono font-bold text-foreground">{copy.benefits.stats.finishedVal}</span>
-                  </div>
-                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-border-subtle">
-                    <div className="h-full rounded-full bg-accent" style={{ width: "92%" }} />
+            {copy.benefits.benefitCards.map((card, idx) => {
+              const [main, accent] = BENEFIT_ICONS[idx];
+              return (
+                <div
+                  key={idx}
+                  className="rounded-3xl border border-card-border bg-card-bg p-6 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-transform hover:-translate-y-1"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/15 border border-accent/30 text-accent">
+                      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
+                        <path d={main} stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d={accent} stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-foreground">
+                        {card.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
+                        {card.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-
-                <div>
-                  <div className="flex justify-between text-xs font-semibold text-foreground-muted">
-                    <span>{copy.benefits.stats.inProgress}</span>
-                    <span className="font-mono font-bold text-foreground">{copy.benefits.stats.inProgressVal}</span>
-                  </div>
-                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-border-subtle">
-                    <div className="h-full rounded-full bg-accent-2" style={{ width: "5%" }} />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs font-semibold text-foreground-muted">
-                    <span>{copy.benefits.stats.reported}</span>
-                    <span className="font-mono font-bold text-foreground">{copy.benefits.stats.reportedVal}</span>
-                  </div>
-                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-border-subtle">
-                    <div className="h-full rounded-full bg-accent-2/50" style={{ width: "3%" }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Overlapping Floating Leads Card (from video) */}
-            <motion.div
-              initial={{ opacity: 0.5, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="absolute -bottom-8 -right-4 rounded-2xl border border-card-border bg-card-bg p-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] sm:p-6"
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/20 text-accent font-bold text-xs">
-                  ✓
-                </span>
-                <span className="font-mono text-xs font-bold text-accent-2">
-                  {copy.benefits.totalInquiriesLabel}
-                </span>
-              </div>
-              <div className="mt-2 font-mono text-2xl font-black text-foreground">
-                {copy.benefits.stats.activeLeadsCount}
-              </div>
-              <div className="mt-1 flex items-center gap-2">
-                <p className="text-[11px] font-semibold text-foreground-muted">
-                  {copy.benefits.stats.activeLeadsText}
-                </p>
-                <span className="rounded-full border border-border-subtle bg-[#091216] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-foreground-muted">
-                  {copy.illustrative.short}
-                </span>
-              </div>
-            </motion.div>
+              );
+            })}
           </motion.div>
 
-          {/* Right: Benefits Text & 3 Pillars */}
+          {/* Right: Heading + 3 pillars */}
           <motion.div
             initial={{ opacity: 0.5, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}

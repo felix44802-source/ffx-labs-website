@@ -23,9 +23,9 @@ export function Navbar({ copy, locale }: { copy: SiteContent; locale: Locale }) 
         {/* Brand Logo & Name */}
         <a href={`/${locale}`} className="flex items-center gap-3 group" aria-label={copy.brand.name}>
           <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-card-bg border border-accent/40 shadow-[0_0_15px_-4px_rgba(20,184,166,0.3)] transition-transform group-hover:scale-105">
-            <Image src="/logo.png" alt="Fx Labs Logo" width={40} height={40} priority className="h-8 w-8 object-contain" />
+            <Image src="/logo.png" alt="Fx Lab Logo" width={40} height={40} priority className="h-8 w-8 object-contain" />
           </div>
-          <span className="font-mono text-base font-bold tracking-[0.18em] text-foreground uppercase md:text-lg">
+          <span className="font-mono text-base font-bold tracking-[0.08em] text-foreground md:text-lg">
             {copy.brand.name}
           </span>
         </a>

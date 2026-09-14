@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { isLocale } from "@/app/lib/locale";
 
-export const alt = "Fx Labs — AI Websites & WhatsApp Bots for Local Businesses";
+export const alt = "Fx Lab — AI Websites & WhatsApp Bots for Local Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -58,7 +58,7 @@ export default async function Image({
             FX
           </div>
           <div style={{ display: "flex", color: "#e6f6f8", fontSize: 32, fontWeight: 700, letterSpacing: 4 }}>
-            FX LABS
+            FX LAB
           </div>
         </div>
 

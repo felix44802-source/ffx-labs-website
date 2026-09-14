@@ -12,9 +12,9 @@ export function Footer({ copy, locale }: { copy: SiteContent; locale: Locale }) 
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#091216] border border-accent/30 shadow-md">
-                <Image src="/logo.png" alt="Fx Labs" width={36} height={36} className="h-8 w-8 object-contain" />
+                <Image src="/logo.png" alt="Fx Lab" width={36} height={36} className="h-8 w-8 object-contain" />
               </div>
-              <span className="font-mono text-base font-bold tracking-[0.2em] text-foreground uppercase">
+              <span className="font-mono text-base font-bold tracking-[0.08em] text-foreground">
                 {copy.brand.name}
               </span>
             </div>

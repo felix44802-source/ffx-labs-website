@@ -8,15 +8,14 @@ import { BenefitsDashboard } from "@/app/components/BenefitsDashboard";
 import { PricingBento } from "@/app/components/PricingBento";
 import { IntegrationsOrbital } from "@/app/components/IntegrationsOrbital";
 import { About } from "@/app/components/About";
-import { CtaBanner } from "@/app/components/CtaBanner";
 import { ContactForm } from "@/app/components/ContactForm";
 import { Footer } from "@/app/components/Footer";
 import { businessPhone, getContent, siteOrigin } from "@/app/lib/content";
 import { isLocale } from "@/app/lib/locale";
 
 const PAGE_TITLES = {
-  en: "FX Labs — AI Websites & WhatsApp Bots for Local Businesses | San Diego",
-  es: "FX Labs — Sitios Web con IA y Bots de WhatsApp para Negocios Locales | San Diego",
+  en: "Fx Lab — AI Websites & WhatsApp Bots for Local Businesses | San Diego",
+  es: "Fx Lab — Sitios Web con IA y Bots de WhatsApp para Negocios Locales | San Diego",
 };
 
 const PAGE_DESCRIPTIONS = {
@@ -42,7 +41,7 @@ export async function generateMetadata({
       title,
       description,
       url: `/${locale}`,
-      siteName: "Fx Labs",
+      siteName: "Fx Lab",
       locale: locale === "es" ? "es_US" : "en_US",
       type: "website",
     },
@@ -111,7 +110,6 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <PricingBento copy={copy} />
         <IntegrationsOrbital copy={copy} />
         <About copy={copy} />
-        <CtaBanner copy={copy} />
         <ContactForm copy={copy} />
       </main>
       <Footer copy={copy} locale={locale} />

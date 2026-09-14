@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Fx Labs Dark Cyan / Teal Palette (Matching Reference) */
+  /* Fx Lab Dark Cyan / Teal Palette (Matching Reference) */
   --background: #05090b;
   --background-elevated: #091216;
   --foreground: #f0fdfa;

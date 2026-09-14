@@ -58,7 +58,9 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                 <div className="flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#05090b] border border-accent/40 text-accent group-hover:scale-110 transition-transform">
                     <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      <rect x="2.5" y="4" width="19" height="13.5" rx="2" stroke="currentColor" strokeWidth="1.7" />
+                      <path d="M8 21h8M12 17.5V21" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                      <path d="M6.5 8l2 2-2 2M11 12h4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <span className="rounded-full bg-accent/15 border border-accent/30 px-3 py-1 font-mono text-[11px] font-bold text-accent-2">
@@ -118,21 +120,21 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             whileHover={{ y: -4 }}
-            className="group relative flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[#05090b] p-8 backdrop-blur-lg transition-all hover:border-[#25D366] hover:shadow-[0_15px_45px_-10px_rgba(37,211,102,0.25)]"
+            className="group relative flex flex-col justify-between rounded-3xl border border-[rgba(34,211,238,0.12)] bg-[#05090b] p-8 backdrop-blur-lg transition-all hover:border-accent hover:shadow-[0_15px_45px_-10px_rgba(6,182,212,0.25)]"
           >
             <div>
               <div className="flex items-center justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#05090b] border border-[#25D366]/40 text-[#25D366] group-hover:scale-110 transition-transform">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#25D366]/10 border border-[#25D366]/40 text-[#25D366] group-hover:scale-110 transition-transform">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
-                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2z" />
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                   </svg>
                 </div>
-                <span className="rounded-full bg-[#25D366]/15 border border-[#25D366]/30 px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#25D366]">
+                <span className="rounded-full bg-accent/15 border border-accent/30 px-2.5 py-0.5 font-mono text-[10px] font-bold text-accent-2">
                   {copy.servicesBento.activeBadge}
                 </span>
               </div>
 
-              <h3 className="mt-6 text-xl font-bold text-foreground group-hover:text-[#25D366] transition-colors">
+              <h3 className="mt-6 text-xl font-bold text-foreground group-hover:text-accent transition-colors">
                 {bot.title}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-foreground-muted">
@@ -143,7 +145,7 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-bold text-[#25D366] hover:underline"
+                className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-bold text-accent hover:underline"
               >
                 {copy.bentoServicesCta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
@@ -158,9 +160,9 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
                 <span className="mt-1 block text-right text-[9px] text-foreground-muted/60">10:42 AM</span>
               </div>
               {/* AI Bot Instant Reply */}
-              <div className="rounded-xl rounded-tr-none border border-[#25D366]/30 bg-[#072418] p-2.5 text-foreground">
+              <div className="rounded-xl rounded-tr-none border border-accent/30 bg-[#0d2833] p-2.5 text-foreground">
                 <p className="text-[11px] leading-tight font-medium">{copy.servicesBento.chatBotReply}</p>
-                <div className="mt-1 flex items-center justify-between text-[9px] text-[#25D366]">
+                <div className="mt-1 flex items-center justify-between text-[9px] text-accent">
                   <span className="font-mono">{copy.servicesBento.autoBookLabel}</span>
                   <span>✓✓ 10:42 AM</span>
                 </div>
@@ -183,8 +185,8 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <div className="flex items-center justify-between">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#05090b] border border-border-subtle text-accent group-hover:border-accent/50 transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-                    <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" stroke="currentColor" strokeWidth="1.8" />
-                    <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" stroke="currentColor" strokeWidth="1.8" />
+                    <path d="M3 4h18l-7 8.5V19a2 2 0 0 1-4 0v-6.5L3 4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+                    <circle cx="12" cy="21" r="1" fill="currentColor" />
                   </svg>
                 </div>
                 <span className="font-mono text-[10px] font-bold text-accent-2">{copy.servicesBento.convBadge}</span>
@@ -235,10 +237,12 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <div className="flex items-center justify-between">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#05090b] border border-border-subtle text-accent group-hover:border-accent/50 transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.8" />
+                    <rect x="6" y="6" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.7" />
+                    <rect x="10" y="10" width="4" height="4" rx="1" fill="currentColor" />
+                    <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                   </svg>
                 </div>
-                <span className="font-mono text-[10px] font-bold text-[#00F0FF]">{copy.servicesBento.engineBadge}</span>
+                <span className="font-mono text-[10px] font-bold text-accent-2">{copy.servicesBento.engineBadge}</span>
               </div>
 
               <h3 className="mt-6 text-lg font-bold text-foreground group-hover:text-accent transition-colors">
@@ -262,8 +266,8 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             {/* Neural Pulse Pill */}
             <div className="mt-6 flex items-center justify-between rounded-xl border border-border-subtle bg-[#05090b] px-3.5 py-2.5 font-mono text-[11px]">
               <span className="text-foreground-muted">{copy.servicesBento.modelLatencyLabel}</span>
-              <span className="font-bold text-[#00F0FF] flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#00F0FF] animate-ping" />
+              <span className="font-bold text-accent-2 flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-2 animate-ping" />
                 ~450ms
               </span>
             </div>
@@ -284,11 +288,12 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
               <div className="flex items-center justify-between">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#05090b] border border-border-subtle text-accent group-hover:border-accent/50 transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-                    <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.8" />
-                    <path d="M3 10h18M8 15h8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                    <path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M4 12a8 8 0 0 1 2.34-5.66" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeDasharray="2 2.5" />
+                    <path d="M12 8v4l2.5 2.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <span className="font-mono text-[10px] font-bold text-[#FF7A59]">{copy.servicesBento.autoPipelineBadge}</span>
+                <span className="font-mono text-[10px] font-bold text-accent-2">{copy.servicesBento.autoPipelineBadge}</span>
               </div>
 
               <h3 className="mt-6 text-lg font-bold text-foreground group-hover:text-accent transition-colors">
@@ -333,8 +338,8 @@ export function ServicesBento({ copy }: { copy: SiteContent }) {
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#05090b] border border-accent/40 text-accent group-hover:scale-110 transition-transform">
                 <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-                  <path d="M3 3v18h18" stroke="currentColor" strokeWidth="2" />
-                  <path d="M18.5 8.5l-5 5-3-3L6 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M3 17l6-6 4 4 7-8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M15 7h5v5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <div>

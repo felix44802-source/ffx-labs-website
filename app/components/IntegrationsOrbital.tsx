@@ -9,21 +9,32 @@ import { whatsappHref } from "@/app/lib/content";
 interface IntegrationItem {
   id: string;
   name: string;
+  /** Structural color, unified to brand cyan for a coherent section. */
   color: string;
   glowColor: string;
   bgTint: string;
   borderTint: string;
+  /** The brand's own color, kept only on the logo icon itself. */
+  brandColor: string;
   icon: (color: string) => React.ReactNode;
 }
+
+// One color family for all the structural strokes/glows; each logo keeps its
+// own brand color so it stays recognizable without turning the section into a
+// rainbow.
+const CYAN = {
+  color: "#06b6d4",
+  glowColor: "rgba(6, 182, 212, 0.35)",
+  bgTint: "rgba(6, 182, 212, 0.1)",
+  borderTint: "rgba(6, 182, 212, 0.3)",
+};
 
 const integrations: IntegrationItem[] = [
   {
     id: "whatsapp",
     name: "WhatsApp",
-    color: "#25D366",
-    glowColor: "rgba(37, 211, 102, 0.6)",
-    bgTint: "rgba(37, 211, 102, 0.12)",
-    borderTint: "rgba(37, 211, 102, 0.35)",
+    ...CYAN,
+    brandColor: "#25D366",
     icon: (color) => (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" style={{ color }}>
         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2zm.01 16.67c-1.49 0-2.95-.4-4.22-1.15l-.3-.18-3.13.82.83-3.05-.2-.31c-.82-1.3-1.26-2.82-1.26-4.39 0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c.01 4.54-3.68 8.25-8.21 8.25zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.74 2.65 4.21 3.72.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.2-.59.2-1.09.14-1.19-.06-.1-.22-.16-.47-.28z" />
@@ -33,12 +44,10 @@ const integrations: IntegrationItem[] = [
   {
     id: "openai",
     name: "OpenAI GPT-4o",
-    color: "#00F0FF",
-    glowColor: "rgba(0, 240, 255, 0.65)",
-    bgTint: "rgba(0, 240, 255, 0.14)",
-    borderTint: "rgba(0, 240, 255, 0.4)",
+    ...CYAN,
+    brandColor: "#10A37F",
     icon: (color) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" style={{ color: "#00F0FF" }}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" style={{ color }}>
         <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z" />
         <path d="m12 6 4 4-4 4-4-4 4-4z" />
         <path d="M12 14v4" />
@@ -49,10 +58,8 @@ const integrations: IntegrationItem[] = [
   {
     id: "stripe",
     name: "Stripe Payments",
-    color: "#635BFF",
-    glowColor: "rgba(99, 91, 255, 0.6)",
-    bgTint: "rgba(99, 91, 255, 0.12)",
-    borderTint: "rgba(99, 91, 255, 0.35)",
+    ...CYAN,
+    brandColor: "#635BFF",
     icon: (color) => (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" style={{ color }}>
         <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697.5 12.396.5 6.404.5 2.5 3.655 2.5 8.769c0 5.226 4.673 6.947 8.016 8.163 2.553.945 3.39 1.583 3.39 2.537 0 .976-.845 1.49-2.28 1.49-2.072 0-5.068-1.077-7.054-2.23l-.934 5.568C5.467 25.132 8.58 25.5 11.59 25.5c6.264 0 10.41-3.084 10.41-8.397 0-4.99-4.32-6.724-8.024-7.953z" />
@@ -62,10 +69,8 @@ const integrations: IntegrationItem[] = [
   {
     id: "calendar",
     name: "Google Calendar",
-    color: "#4285F4",
-    glowColor: "rgba(66, 133, 244, 0.65)",
-    bgTint: "rgba(66, 133, 244, 0.14)",
-    borderTint: "rgba(66, 133, 244, 0.4)",
+    ...CYAN,
+    brandColor: "#4285F4",
     icon: () => (
       <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none">
         {/* Blue: Top and Left */}
@@ -96,10 +101,8 @@ const integrations: IntegrationItem[] = [
   {
     id: "meta",
     name: "Meta & Facebook Ads",
-    color: "#1877F2",
-    glowColor: "rgba(24, 119, 242, 0.6)",
-    bgTint: "rgba(24, 119, 242, 0.12)",
-    borderTint: "rgba(24, 119, 242, 0.35)",
+    ...CYAN,
+    brandColor: "#1877F2",
     icon: (color) => (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" style={{ color }}>
         <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" />
@@ -109,10 +112,8 @@ const integrations: IntegrationItem[] = [
   {
     id: "crm",
     name: "CRM & HubSpot",
-    color: "#FF7A59",
-    glowColor: "rgba(255, 122, 89, 0.6)",
-    bgTint: "rgba(255, 122, 89, 0.12)",
-    borderTint: "rgba(255, 122, 89, 0.35)",
+    ...CYAN,
+    brandColor: "#FF7A59",
     icon: (color) => (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" style={{ color }}>
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -179,7 +180,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
                       borderColor: activeItem.borderTint,
                     }}
                   >
-                    {activeItem.icon(activeItem.color)}
+                    {activeItem.icon(activeItem.brandColor)}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
@@ -306,7 +307,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
                 })}
               </svg>
 
-              {/* Central Core: Fx Labs Hub */}
+              {/* Central Core: Fx Lab Hub */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                 {/* Heartbeat Radar Ripple */}
                 <div
@@ -329,7 +330,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
                 >
                   <Image
                     src="/logo.png"
-                    alt="Fx Labs Hub"
+                    alt="Fx Lab Hub"
                     width={48}
                     height={48}
                     className="h-11 w-11 object-contain"
@@ -364,7 +365,7 @@ export function IntegrationsOrbital({ copy }: { copy: SiteContent }) {
                       isActive ? "scale-120 ring-2" : "hover:border-white/40 opacity-90 hover:opacity-100"
                     }`}
                   >
-                    {item.icon(item.color)}
+                    {item.icon(item.brandColor)}
                   </button>
                 );
               })}

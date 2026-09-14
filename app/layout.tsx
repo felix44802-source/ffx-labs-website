@@ -19,7 +19,7 @@ const martianMono = Martian_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
-  title: "FX Labs — AI Websites & WhatsApp Bots for Local Businesses | San Diego",
+  title: "Fx Lab — AI Websites & WhatsApp Bots for Local Businesses | San Diego",
   description:
     "AI-powered websites and 24/7 WhatsApp bots for San Diego local businesses. Automate bookings, capture leads, and never miss a customer message again.",
 };
